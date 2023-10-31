@@ -1,0 +1,283 @@
+{
+  "collections": {
+    "books": [
+      {
+        "title": "Brodie's Notes on Emily Bronte's \"Wuthering Heights\" (Brodies Notes)",
+        "type": "edition",
+        "last_modified": "2022-11-15T20:13:03.789779",
+        "publishers": [
+          "Palgrave Macmillan"
+        ],
+        "latest_revision": 13,
+        "key": "OL10551435M",
+        "revision": 13,
+        "subjects": [
+          "English literature: literary criticism",
+          "Novels, other prose & writers: 19th century",
+          "Designed / suitable for A & AS Level",
+          "For National Curriculum Key Stage 4 & GCSE",
+          "Study guides, home study & revision notes",
+          "English",
+          "Children: Young Adult (Gr. 7-9)"
+        ],
+        "number_of_pages": 127,
+        "publish_date": "August 7, 1992",
+        "authors": [
+          "OL1158982A"
+        ]
+      },
+      {
+        "subjects": [
+          "Aristophanes"
+        ],
+        "key": "OL13994901M",
+        "last_modified": "2010-04-13T09:56:10.635564",
+        "publish_date": "1913",
+        "publishers": [
+          "P. Schettlers"
+        ],
+        "revision": 3,
+        "authors": [
+          "OL4473583A"
+        ],
+        "title": "Aristophanes, ein Spiegel unserer Zeit.",
+        "type": "edition",
+        "latest_revision": 3,
+        "number_of_pages": 78
+      },
+      {
+        "publish_date": "1993",
+        "number_of_pages": 192,
+        "title": "War in Europe",
+        "key": "OL1413776M",
+        "authors": [
+          "OL581008A"
+        ],
+        "revision": 10,
+        "publishers": [
+          "Presidio"
+        ],
+        "type": "edition",
+        "latest_revision": 10,
+        "subjects": [
+          "World War, 1939-1945 -- Campaigns -- Europe.",
+          "World War, 1939-1945 -- Campaigns -- Europe -- Pictorial works."
+        ],
+        "last_modified": "2022-12-05T06:01:35.024861"
+      },
+      {
+        "number_of_pages": 26,
+        "type": "edition",
+        "key": "OL21357082M",
+        "latest_revision": 5,
+        "subjects": [
+          "Muskoka (Ont. : District) -- Description and travel.",
+          "Muskoka (Ont. : District) -- History."
+        ],
+        "revision": 5,
+        "title": "Muskoka sketch",
+        "publish_date": "1983",
+        "publishers": [
+          "Times Printing Company"
+        ],
+        "authors": [
+          "OL5295787A"
+        ],
+        "last_modified": "2012-08-08T21:10:59.924864"
+      },
+      {
+        "authors": [
+          "OL2555401A"
+        ],
+        "key": "OL22885087M",
+        "publish_date": "1803",
+        "title": "A Letter to Alexander Knox, Esq. M.R.I.A.",
+        "revision": 3,
+        "latest_revision": 3,
+        "subjects": [
+          "Methodists -- Ireland."
+        ],
+        "type": "edition",
+        "number_of_pages": 200,
+        "last_modified": "2012-08-07T10:18:24.946860",
+        "publishers": [
+          "Printed by H. Colbert"
+        ]
+      },
+      {
+        "last_modified": "2020-05-21T10:17:30.189173",
+        "authors": [
+          "OL5288239A"
+        ],
+        "title": "Les Institutions de credit-foncier. Quelques notes sur leur but, leur organisation et leur origine",
+        "publish_date": "1880",
+        "number_of_pages": 48,
+        "latest_revision": 2,
+        "key": "OL25465456M",
+        "type": "edition",
+        "revision": 2,
+        "subjects": [
+          "Credit",
+          "Banks and banking"
+        ],
+        "publishers": [
+          "L.J. Demers"
+        ]
+      },
+      {
+        "subjects": [
+          "Criticism, interpretation",
+          "Bible"
+        ],
+        "latest_revision": 3,
+        "last_modified": "2020-05-15T03:58:15.877548",
+        "authors": [
+          "OL2153880A"
+        ],
+        "key": "OL26545029M",
+        "title": "Psaumes et prière chrétienne",
+        "publishers": [
+          "Biblica, Publications de Saint André"
+        ],
+        "revision": 3,
+        "number_of_pages": 298,
+        "publish_date": "1965",
+        "type": "edition"
+      },
+      {
+        "publishers": [
+          "IDG Books Worldwide"
+        ],
+        "publish_date": "1995",
+        "key": "OL824543M",
+        "last_modified": "2020-11-20T15:58:35.964496",
+        "latest_revision": 10,
+        "authors": [
+          "OL51749A"
+        ],
+        "subjects": [
+          "Home video systems.",
+          "Video tape recorders.",
+          "Camcorders.",
+          "Television -- Equipment and supplies."
+        ],
+        "type": "edition",
+        "revision": 10,
+        "title": "VCRs & camcorders for dummies",
+        "number_of_pages": 331
+      },
+      {
+        "number_of_pages": 48,
+        "publishers": [
+          "New Island Books",
+          "Nick Hern Books"
+        ],
+        "revision": 6,
+        "authors": [
+          "OL500580A"
+        ],
+        "latest_revision": 6,
+        "type": "edition",
+        "title": "A night in November",
+        "subjects": [
+          "Protestants -- Northern Ireland -- Belfast -- Drama.",
+          "Soccer -- Northern Ireland -- Belfast -- Drama."
+        ],
+        "publish_date": "1995",
+        "key": "OL904472M",
+        "last_modified": "2020-11-21T08:24:06.596410"
+      },
+      {
+        "title": "The Sleepover Girls Go Spice.... (The Sleepover Club)",
+        "number_of_pages": 96,
+        "subjects": [
+          "Fiction"
+        ],
+        "last_modified": "2022-12-17T03:01:10.857196",
+        "authors": [
+          "OL2802829A"
+        ],
+        "publishers": [
+          "Collins"
+        ],
+        "key": "OL9921201M",
+        "publish_date": "November 3, 1997",
+        "revision": 5,
+        "latest_revision": 5,
+        "type": "edition"
+      }
+    ],
+    "authors": [
+      {
+        "last_modified": "2008-08-19 18:21:52.259027",
+        "name": "Norman T. Carrington",
+        "key": "OL1158982A",
+        "revision": 2,
+        "type": "author"
+      },
+      {
+        "type": "author",
+        "revision": 1,
+        "last_modified": "2008-04-01 03:28:50.625462",
+        "key": "OL2153880A",
+        "name": "Rose, A."
+      },
+      {
+        "revision": 2,
+        "last_modified": "2012-06-07T08:18:43.478466",
+        "type": "author",
+        "name": "Walker, John",
+        "key": "OL2555401A"
+      },
+      {
+        "name": "Lorna Read",
+        "type": "author",
+        "key": "OL2802829A",
+        "last_modified": "2008-04-29 15:03:11.581851",
+        "revision": 1
+      },
+      {
+        "last_modified": "2008-09-02 18:39:32.675717",
+        "revision": 1,
+        "key": "OL4473583A",
+        "type": "author",
+        "name": "A. B Kneisel"
+      },
+      {
+        "revision": 2,
+        "key": "OL500580A",
+        "name": "Marie Jones",
+        "last_modified": "2008-08-31 21:11:02.340397",
+        "type": "author"
+      },
+      {
+        "key": "OL51749A",
+        "revision": 2,
+        "type": "author",
+        "name": "Gordon McComb",
+        "last_modified": "2008-09-12 15:59:54.226722"
+      },
+      {
+        "name": "L. N. Carrier",
+        "revision": 1,
+        "key": "OL5288239A",
+        "type": "author",
+        "last_modified": "2008-09-28 19:19:44.680177"
+      },
+      {
+        "key": "OL5295787A",
+        "last_modified": "2008-09-28 21:35:54.283711",
+        "name": "W. E. Hamilton",
+        "type": "author",
+        "revision": 1
+      },
+      {
+        "type": "author",
+        "last_modified": "2008-08-30 03:01:23.375753",
+        "revision": 2,
+        "name": "Sidney C. Moody",
+        "key": "OL581008A"
+      }
+    ]
+  }
+}

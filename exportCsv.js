@@ -90,16 +90,13 @@ var handleCommas = function (input) {
                 authorsSnapshot.forEach(function (doc) {
                     authors_1.push(doc.data());
                 });
-                console.log("formatting for json...");
+                console.log("combining...");
                 booksExport = books_1.map(function (book) {
                     var bookAuthors = book.authors.map(function (author) {
                         return authors_1.find(function (a) { return a.key === author; });
                     });
                     return __assign(__assign({}, book), { authors: bookAuthors });
                 });
-                console.log("writing to export.json...");
-                fs.writeFileSync("export.json", JSON.stringify(booksExport, null, 2), "utf-8");
-                console.log("json export successful!");
                 console.log("formatting for csv...");
                 header = "last_modified,publisher,title,author_key,author_type,author_revision,author_last_modified,author_name,publish_date,type,key,subject,latest_revision,revision,number_of_pages\n";
                 rows = booksExport.flatMap(function (book) {

@@ -74,7 +74,7 @@ const handleCommas = (input: any) => {
       authors.push(doc.data() as Author);
     });
 
-    console.log("formatting for json...");
+    console.log("combining...")
     const booksExport: BookExport[] = books.map((book) => {
       const bookAuthors: (Author | undefined)[] = book.authors.map((author) =>
         authors.find((a) => a.key === author)
@@ -84,14 +84,6 @@ const handleCommas = (input: any) => {
         authors: bookAuthors,
       };
     });
-
-    console.log("writing to export.json...");
-    fs.writeFileSync(
-      "export.json",
-      JSON.stringify(booksExport, null, 2),
-      "utf-8"
-    );
-    console.log("json export successful!");
 
     console.log("formatting for csv...");
     const header =

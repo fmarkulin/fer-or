@@ -1,0 +1,4 @@
+services:
+  firestore:
+    image: frankulin/fer-or:or-fb
+    tty: true
