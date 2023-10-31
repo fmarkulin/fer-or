@@ -60,12 +60,6 @@ var firebaseConfig = {
 };
 var app = (0, app_1.initializeApp)(firebaseConfig);
 var db = (0, firestore_1.getFirestore)(app);
-var handleCommas = function (input) {
-    if (typeof input === "string" && input.includes(","))
-        return "\"".concat(input, "\"");
-    else
-        return input;
-};
 (function () { return __awaiter(void 0, void 0, void 0, function () {
     var booksRef, booksSnapshot, books_1, authorsRef, authorsSnapshot, authors_1, booksExport, e_1;
     return __generator(this, function (_a) {
@@ -98,7 +92,7 @@ var handleCommas = function (input) {
                     return __assign(__assign({}, book), { authors: bookAuthors });
                 });
                 console.log("writing to export.json...");
-                fs.writeFileSync("export.json", JSON.stringify(booksExport, null, 2), "utf-8");
+                fs.writeFileSync("books.json", JSON.stringify(booksExport, null, 2), "utf-8");
                 console.log("json export successful!");
                 return [3 /*break*/, 5];
             case 3:

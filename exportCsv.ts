@@ -74,7 +74,7 @@ const handleCommas = (input: any) => {
       authors.push(doc.data() as Author);
     });
 
-    console.log("combining...")
+    console.log("combining...");
     const booksExport: BookExport[] = books.map((book) => {
       const bookAuthors: (Author | undefined)[] = book.authors.map((author) =>
         authors.find((a) => a.key === author)
@@ -113,7 +113,7 @@ const handleCommas = (input: any) => {
     );
     const csv = header + rows.map((row) => row.join(",")).join("\n");
     console.log("writing to export.csv...");
-    fs.writeFileSync("novi_csv.csv", csv, "utf-8");
+    fs.writeFileSync("books.csv", csv, "utf-8");
     console.log("csv export successful!");
   } catch (e) {
     console.log("error exportin data", e);

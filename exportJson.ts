@@ -81,7 +81,7 @@ declare type Book = {
 
     console.log("writing to export.json...");
     fs.writeFileSync(
-      "novi_json.json",
+      "books.json",
       JSON.stringify(booksExport, null, 2),
       "utf-8"
     );

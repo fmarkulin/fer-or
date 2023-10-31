@@ -124,7 +124,7 @@ var handleCommas = function (input) {
                 });
                 csv = header + rows.map(function (row) { return row.join(","); }).join("\n");
                 console.log("writing to export.csv...");
-                fs.writeFileSync("export.csv", csv, "utf-8");
+                fs.writeFileSync("books.csv", csv, "utf-8");
                 console.log("csv export successful!");
                 return [3 /*break*/, 5];
             case 3:
