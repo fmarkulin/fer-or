@@ -1,4 +1,4 @@
 services:
   firestore:
-    image: frankulin/fer-or:or-fb
+    image: frankulin/fer-or:lab
     tty: true

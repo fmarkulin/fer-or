@@ -50,12 +50,6 @@ declare type Book = {
   revision: number;
 };
 
-const handleCommas = (input: any) => {
-  if (typeof input === "string" && (input as string).includes(","))
-    return `"${input}"`;
-  else return input;
-};
-
 (async () => {
   try {
     console.log("getting books...");
@@ -87,7 +81,7 @@ const handleCommas = (input: any) => {
 
     console.log("writing to export.json...");
     fs.writeFileSync(
-      "export.json",
+      "novi_json.json",
       JSON.stringify(booksExport, null, 2),
       "utf-8"
     );

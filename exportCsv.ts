@@ -113,7 +113,7 @@ const handleCommas = (input: any) => {
     );
     const csv = header + rows.map((row) => row.join(",")).join("\n");
     console.log("writing to export.csv...");
-    fs.writeFileSync("export.csv", csv, "utf-8");
+    fs.writeFileSync("novi_csv.csv", csv, "utf-8");
     console.log("csv export successful!");
   } catch (e) {
     console.log("error exportin data", e);
