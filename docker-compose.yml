@@ -1,7 +1,0 @@
-version: '1.0'
-
-services:
-  firestore:
-    image: frankulin/fer-or:v1
-    tty: true
-    container_name: lab-firestore
