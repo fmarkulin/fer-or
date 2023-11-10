@@ -19,6 +19,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${GeistSans.variable} ${GeistMono.variable} relative selection:bg-primary selection:text-primary-foreground`}
     >
       <body className="min-h-screen flex flex-col">
