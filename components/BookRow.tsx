@@ -1,39 +1,51 @@
-import { Table } from "lucide-react";
 import { TableCell, TableRow } from "./ui/table";
 import { BookExport } from "@/models/BookExport";
+import dayjs from "dayjs";
+import { Fragment } from "react";
 
 interface BookRowProps {
   book: BookExport;
 }
 
+const Tag = ({ children }: { children: string }) => (
+  <div className="p-1 m-1 rounded bg-accent text-accent-foreground inline-block">
+    {children}
+  </div>
+);
+
 export default function BookRow({ book }: BookRowProps) {
   return (
     <TableRow>
-      <TableCell>{book.last_modified}</TableCell>
-      <TableCell>{book.publishers}</TableCell>
-      <TableCell>{book.title}</TableCell>
-      <TableCell>
-        {book.authors.map((author) => `${author ? author.key : ""},`)}
-      </TableCell>
-      <TableCell>
-        {book.authors.map((author) => `${author ? author.type : ""},`)}
-      </TableCell>
-      <TableCell>
-        {book.authors.map((author) => `${author ? author.revision : ""},`)}
-      </TableCell>
-      <TableCell>
-        {book.authors.map((author) => `${author ? author.last_modified : ""},`)}
-      </TableCell>
-      <TableCell>
-        {book.authors.map((author) => `${author ? author.name : ""},`)}
-      </TableCell>
-      <TableCell>{book.publish_date}</TableCell>
-      <TableCell>{book.type}</TableCell>
+      <TableCell className="font-medium">{book.title}</TableCell>
       <TableCell>{book.key}</TableCell>
-      <TableCell>{book.subjects}</TableCell>
+      <TableCell>
+        {book.authors.map((author, i) =>
+          author ? (
+            <Fragment key={author.key}>
+              <Tag>{author.name}</Tag>
+            </Fragment>
+          ) : null
+        )}
+      </TableCell>
+      <TableCell>
+        {book.publishers.map((publisher, i) => (
+          <>
+            <Tag>{publisher}</Tag>
+          </>
+        ))}
+      </TableCell>
+      <TableCell>
+        {book.subjects.map((subject) => (
+          <Tag>{subject}</Tag>
+        ))}
+      </TableCell>
+      <TableCell>{book.number_of_pages}</TableCell>
+      <TableCell>{dayjs(book.publish_date).format("YYYY-MM-DD")}</TableCell>
+      <TableCell>
+        {dayjs(book.last_modified).format("YYYY-MM-DD HH:mm:ss")}
+      </TableCell>
       <TableCell>{book.latest_revision}</TableCell>
       <TableCell>{book.revision}</TableCell>
-      <TableCell>{book.number_of_pages}</TableCell>
     </TableRow>
   );
 }

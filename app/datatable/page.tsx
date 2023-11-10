@@ -17,21 +17,16 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const header = [
-  "Zadnje uređivano",
-  "Nakladnik",
   "Naslov",
-  "Ključ autora",
-  "Tip autora",
-  "Revizija autora",
-  "Zadnje uređivanje autora",
-  "Ime autora",
-  "Datum objave",
-  "Tip",
   "Ključ",
+  "Imena autora",
+  "Nakladnici",
   "Subjekti",
+  "Broj stranica",
+  "Datum objave",
+  "Zadnje uređivano",
   "Zadnja revizija",
   "Revizija",
-  "Broj stranica",
 ];
 
 export default function DatatablePage() {
