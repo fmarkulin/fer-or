@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "https://github.com/fmarkulin/blob/main/schema.json",
+  "$id": "https://github.com/fmarkulin/fer-or/blob/main/schema.json",
   "type": "array",
   "default": [],
   "title": "The Books and their authors Schema",
