@@ -1,0 +1,384 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "https://github.com/fmarkulin/blob/main/schema.json",
+  "type": "array",
+  "default": [],
+  "title": "The Books and their authors Schema",
+  "description": "A list of books and their authors",
+  "items": {
+    "type": "object",
+    "title": "A Books and their authors properties Schema",
+    "required": [
+      "number_of_pages",
+      "title",
+      "publish_date",
+      "publishers",
+      "last_modified",
+      "type",
+      "revision",
+      "latest_revision",
+      "authors",
+      "key",
+      "subjects"
+    ],
+    "properties": {
+      "number_of_pages": {
+        "type": "integer",
+        "title": "The number_of_pages Schema",
+        "description": "Number of pages in the book",
+        "examples": [127, 78, 192, 26, 200, 48, 298, 331, 96]
+      },
+      "title": {
+        "type": "string",
+        "title": "The title Schema",
+        "description": "The title of the book",
+        "examples": [
+          "Brodie's Notes on Emily Bronte's \"Wuthering Heights\" (Brodies Notes)",
+          "Aristophanes, ein Spiegel unserer Zeit.",
+          "War in Europe",
+          "VCRs \u0026 camcorders for dummies"
+        ]
+      },
+      "publish_date": {
+        "type": "string",
+        "title": "The publish_date Schema",
+        "description": "The date the book was published",
+        "examples": ["August 7, 1992", "1913"]
+      },
+      "publishers": {
+        "type": "array",
+        "title": "The publishers Schema",
+        "description": "The publishers of the book",
+        "items": {
+          "type": "string",
+          "title": "A publisher Schema",
+          "examples": ["Palgrave Macmillan", "P. Schettlers", "Presidio"]
+        },
+        "examples": [
+          ["Palgrave Macmillan"],
+          ["P. Schettlers"],
+          ["Presidio"],
+          ["Palgrave Macmillan", "Presidio"]
+        ]
+      },
+      "last_modified": {
+        "type": "string",
+        "title": "The last_modified Schema",
+        "description": "The timestamp the book was last modified",
+        "examples": ["2022-11-15T20:13:03.789779", "2022-12-17T03:01:10.857196"]
+      },
+      "type": {
+        "type": "string",
+        "title": "The type Schema",
+        "description": "The type of the book",
+        "examples": ["edition"]
+      },
+      "revision": {
+        "type": "integer",
+        "title": "The revision Schema",
+        "description": "The revision of the book",
+        "examples": [13, 3, 10, 5, 2, 6]
+      },
+      "latest_revision": {
+        "type": "integer",
+        "title": "The latest_revision Schema",
+        "description": "The latest revision of the book",
+        "examples": [13, 3, 10, 5, 2, 6]
+      },
+      "authors": {
+        "type": "array",
+        "title": "The authors Schema",
+        "description": "The authors of the book",
+        "items": {
+          "type": "object",
+          "title": "A author Schema",
+          "description": "A author of the book",
+          "required": ["last_modified", "type", "name", "key", "revision"],
+          "properties": {
+            "last_modified": {
+              "type": "string",
+              "title": "The last_modified Schema",
+              "examples": [
+                "2008-08-30 03:01:23.375753",
+                "2008-04-29 15:03:11.581851"
+              ]
+            },
+            "type": {
+              "type": "string",
+              "title": "The type Schema",
+              "description": "The type of the entry",
+              "examples": ["author"]
+            },
+            "name": {
+              "type": "string",
+              "title": "The name Schema",
+              "description": "The name of the author",
+              "examples": [
+                "Norman T. Carrington",
+                "A. B Kneisel",
+                "Sidney C. Moody",
+                "W. E. Hamilton",
+                "Walker, John",
+                "L. N. Carrier",
+                "Rose, A.",
+                "Gordon McComb",
+                "Marie Jones",
+                "Lorna Read"
+              ]
+            },
+            "key": {
+              "type": "string",
+              "title": "The key Schema",
+              "description": "The key of the author",
+              "examples": [
+                "OL1158982A",
+                "OL4473583A",
+                "OL581008A",
+                "OL5295787A",
+                "OL2555401A",
+                "OL5288239A",
+                "OL2153880A",
+                "OL51749A",
+                "OL500580A",
+                "OL2802829A"
+              ]
+            },
+            "revision": {
+              "type": "integer",
+              "title": "The revision Schema",
+              "description": "The revision of the author",
+              "examples": [2, 1]
+            }
+          },
+          "examples": [
+            {
+              "last_modified": "2008-08-19 18:21:52.259027",
+              "type": "author",
+              "name": "Norman T. Carrington",
+              "key": "OL1158982A",
+              "revision": 2
+            },
+            {
+              "type": "author",
+              "name": "A. B Kneisel",
+              "last_modified": "2008-09-02 18:39:32.675717",
+              "revision": 1,
+              "key": "OL4473583A"
+            }
+          ]
+        },
+        "examples": [
+          [
+            {
+              "last_modified": "2008-08-19 18:21:52.259027",
+              "type": "author",
+              "name": "Norman T. Carrington",
+              "key": "OL1158982A",
+              "revision": 2
+            }
+          ],
+          [
+            {
+              "type": "author",
+              "name": "A. B Kneisel",
+              "last_modified": "2008-09-02 18:39:32.675717",
+              "revision": 1,
+              "key": "OL4473583A"
+            }
+          ]
+        ]
+      },
+      "key": {
+        "type": "string",
+        "title": "The key Schema",
+        "description": "The key of the book",
+        "examples": ["OL10551435M", "OL13994901M"]
+      },
+      "subjects": {
+        "type": "array",
+        "title": "The subjects Schema",
+        "description": "The subjects of the book",
+        "items": {
+          "type": "string",
+          "title": "A subject Schema",
+          "examples": [
+            "English literature: literary criticism",
+            "Novels, other prose \u0026 writers: 19th century",
+            "English",
+            "World War, 1939-1945 -- Campaigns -- Europe."
+          ]
+        },
+        "examples": [
+          [
+            "English literature: literary criticism",
+            "Novels, other prose \u0026 writers: 19th century",
+            "Designed / suitable for A \u0026 AS Level",
+            "For National Curriculum Key Stage 4 \u0026 GCSE",
+            "Study guides, home study \u0026 revision notes",
+            "English",
+            "Children: Young Adult (Gr. 7-9)"
+          ],
+          ["Aristophanes"],
+          [
+            "World War, 1939-1945 -- Campaigns -- Europe.",
+            "World War, 1939-1945 -- Campaigns -- Europe -- Pictorial works."
+          ]
+        ]
+      }
+    },
+    "examples": [
+      {
+        "number_of_pages": 127,
+        "title": "Brodie's Notes on Emily Bronte's \"Wuthering Heights\" (Brodies Notes)",
+        "publish_date": "August 7, 1992",
+        "publishers": ["Palgrave Macmillan"],
+        "last_modified": "2022-11-15T20:13:03.789779",
+        "type": "edition",
+        "revision": 13,
+        "latest_revision": 13,
+        "authors": [
+          {
+            "last_modified": "2008-08-19 18:21:52.259027",
+            "type": "author",
+            "name": "Norman T. Carrington",
+            "key": "OL1158982A",
+            "revision": 2
+          }
+        ],
+        "key": "OL10551435M",
+        "subjects": [
+          "English literature: literary criticism",
+          "Novels, other prose \u0026 writers: 19th century",
+          "Designed / suitable for A \u0026 AS Level",
+          "For National Curriculum Key Stage 4 \u0026 GCSE",
+          "Study guides, home study \u0026 revision notes",
+          "English",
+          "Children: Young Adult (Gr. 7-9)"
+        ]
+      },
+      {
+        "revision": 3,
+        "publishers": ["P. Schettlers"],
+        "key": "OL13994901M",
+        "number_of_pages": 78,
+        "type": "edition",
+        "latest_revision": 3,
+        "title": "Aristophanes, ein Spiegel unserer Zeit.",
+        "subjects": ["Aristophanes"],
+        "authors": [
+          {
+            "type": "author",
+            "name": "A. B Kneisel",
+            "last_modified": "2008-09-02 18:39:32.675717",
+            "revision": 1,
+            "key": "OL4473583A"
+          }
+        ],
+        "publish_date": "1913",
+        "last_modified": "2010-04-13T09:56:10.635564"
+      },
+      {
+        "revision": 10,
+        "type": "edition",
+        "key": "OL1413776M",
+        "publish_date": "1993",
+        "authors": [
+          {
+            "type": "author",
+            "name": "Sidney C. Moody",
+            "last_modified": "2008-08-30 03:01:23.375753",
+            "key": "OL581008A",
+            "revision": 2
+          }
+        ],
+        "publishers": ["Presidio"],
+        "title": "War in Europe",
+        "number_of_pages": 192,
+        "last_modified": "2022-12-05T06:01:35.024861",
+        "subjects": [
+          "World War, 1939-1945 -- Campaigns -- Europe.",
+          "World War, 1939-1945 -- Campaigns -- Europe -- Pictorial works."
+        ],
+        "latest_revision": 10
+      }
+    ]
+  },
+  "examples": [
+    [
+      {
+        "number_of_pages": 127,
+        "title": "Brodie's Notes on Emily Bronte's \"Wuthering Heights\" (Brodies Notes)",
+        "publish_date": "August 7, 1992",
+        "publishers": ["Palgrave Macmillan"],
+        "last_modified": "2022-11-15T20:13:03.789779",
+        "type": "edition",
+        "revision": 13,
+        "latest_revision": 13,
+        "authors": [
+          {
+            "last_modified": "2008-08-19 18:21:52.259027",
+            "type": "author",
+            "name": "Norman T. Carrington",
+            "key": "OL1158982A",
+            "revision": 2
+          }
+        ],
+        "key": "OL10551435M",
+        "subjects": [
+          "English literature: literary criticism",
+          "Novels, other prose \u0026 writers: 19th century",
+          "Designed / suitable for A \u0026 AS Level",
+          "For National Curriculum Key Stage 4 \u0026 GCSE",
+          "Study guides, home study \u0026 revision notes",
+          "English",
+          "Children: Young Adult (Gr. 7-9)"
+        ]
+      },
+      {
+        "revision": 3,
+        "publishers": ["P. Schettlers"],
+        "key": "OL13994901M",
+        "number_of_pages": 78,
+        "type": "edition",
+        "latest_revision": 3,
+        "title": "Aristophanes, ein Spiegel unserer Zeit.",
+        "subjects": ["Aristophanes"],
+        "authors": [
+          {
+            "type": "author",
+            "name": "A. B Kneisel",
+            "last_modified": "2008-09-02 18:39:32.675717",
+            "revision": 1,
+            "key": "OL4473583A"
+          }
+        ],
+        "publish_date": "1913",
+        "last_modified": "2010-04-13T09:56:10.635564"
+      },
+      {
+        "revision": 10,
+        "type": "edition",
+        "key": "OL1413776M",
+        "publish_date": "1993",
+        "authors": [
+          {
+            "type": "author",
+            "name": "Sidney C. Moody",
+            "last_modified": "2008-08-30 03:01:23.375753",
+            "key": "OL581008A",
+            "revision": 2
+          }
+        ],
+        "publishers": ["Presidio"],
+        "title": "War in Europe",
+        "number_of_pages": 192,
+        "last_modified": "2022-12-05T06:01:35.024861",
+        "subjects": [
+          "World War, 1939-1945 -- Campaigns -- Europe.",
+          "World War, 1939-1945 -- Campaigns -- Europe -- Pictorial works."
+        ],
+        "latest_revision": 10
+      }
+    ]
+  ]
+}

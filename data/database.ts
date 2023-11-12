@@ -22,15 +22,17 @@ const getBooks = async () => {
       authors.push(doc.data() as Author);
     });
 
-    const data: BookExport[] = books.map((book) => {
-      const bookAuthors: (Author | undefined)[] = book.authors.map((author) =>
-        authors.find((a) => a.key === author)
-      );
-      return {
-        ...book,
-        authors: bookAuthors,
-      };
-    });
+    const data: BookExport[] = books
+      .map((book) => {
+        const bookAuthors: (Author | undefined)[] = book.authors.map((author) =>
+          authors.find((a) => a.key === author)
+        );
+        return {
+          ...book,
+          authors: bookAuthors,
+        };
+      })
+      // .sort((a, b) => a.title.localeCompare(b.title));
 
     return data;
   } catch (e) {

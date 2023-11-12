@@ -8,7 +8,7 @@ interface BookRowProps {
 }
 
 const Tag = ({ children }: { children: string }) => (
-  <div className="p-1 m-1 rounded bg-accent text-accent-foreground inline-block">
+  <div className="p-2 m-1 rounded bg-accent text-accent-foreground inline-block">
     {children}
   </div>
 );
@@ -29,18 +29,20 @@ export default function BookRow({ book }: BookRowProps) {
       </TableCell>
       <TableCell>
         {book.publishers.map((publisher, i) => (
-          <>
-            <Tag>{publisher}</Tag>
-          </>
+          <Tag key={publisher}>{publisher}</Tag>
         ))}
       </TableCell>
       <TableCell>
         {book.subjects.map((subject) => (
-          <Tag>{subject}</Tag>
+          <Tag key={subject}>{subject}</Tag>
         ))}
       </TableCell>
       <TableCell>{book.number_of_pages}</TableCell>
-      <TableCell>{dayjs(book.publish_date).format("YYYY-MM-DD")}</TableCell>
+      <TableCell>
+        {book.publish_date.includes(",")
+          ? dayjs(book.publish_date).format("YYYY-MM-DD")
+          : dayjs(book.publish_date).format("YYYY")}
+      </TableCell>
       <TableCell>
         {dayjs(book.last_modified).format("YYYY-MM-DD HH:mm:ss")}
       </TableCell>

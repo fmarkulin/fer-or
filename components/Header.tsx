@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ModeToggle } from "./ModeToggle";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
@@ -20,7 +19,7 @@ export default function Header() {
             <NavigationMenuItem>
               <Link href={"/"} legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Home
+                  Index
                 </NavigationMenuLink>
               </Link>
             </NavigationMenuItem>
