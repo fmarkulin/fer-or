@@ -13,8 +13,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
-// if (process.env.NODE_ENV === "development") {
-//   console.log("development mode");
-//   connectFirestoreEmulator(db, "localhost", 8080);
-//   console.log("connected to firestore emulator");
-// }
+if (process.env.NODE_ENV === "development") {
+  console.log("development mode");
+  connectFirestoreEmulator(db, "localhost", 8080);
+  console.log("connected to firestore emulator");
+}
