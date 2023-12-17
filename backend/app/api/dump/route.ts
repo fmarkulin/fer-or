@@ -11,6 +11,23 @@ export async function GET() {
   try {
     const booksRef = collection(db, "books");
     const booksSnapshot = await getDocs(booksRef);
+    if (booksSnapshot.empty) {
+      return new NextResponse(
+        JSON.stringify({
+          status: "Not Found",
+          message: "No books found",
+          response: null,
+          timestamp: dayjs().toISOString(),
+        }),
+        {
+          headers: {
+            "content-type": "application/json",
+          },
+          status: 404,
+        }
+      );
+    }
+
     const books: Book[] = [];
     booksSnapshot.forEach((snapshot) => books.push(snapshot.data() as Book));
 
