@@ -2,16 +2,10 @@ import { db } from "@/data/firebase";
 import { Author } from "@/models/Author";
 import { Book } from "@/models/Book";
 import dayjs from "dayjs";
-import {
-  collection,
-  deleteDoc,
-  doc,
-  getDoc,
-  getDocs,
-} from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { NextResponse, type NextRequest } from "next/server";
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   console.log(dayjs().toISOString() + " GET /api/books");
 
   try {
@@ -45,91 +39,6 @@ export async function GET(req: NextRequest) {
       JSON.stringify({
         status: "Internal Server Error",
         message: "Error dumping data",
-        response: null,
-        timestamp: dayjs().toISOString(),
-      }),
-      {
-        status: 500,
-      }
-    );
-  }
-}
-
-export async function DELETE(req: NextRequest) {
-  const body = await req.json();
-  console.log(`${dayjs().toISOString()} DELETE /api/books}`, body);
-
-  if (!("id" in body)) {
-    return new NextResponse(
-      JSON.stringify({
-        status: "Bad Request",
-        message: "Missing id",
-        response: null,
-        timestamp: dayjs().toISOString(),
-      }),
-      {
-        status: 400,
-      }
-    );
-  }
-
-  const { id } = body;
-  if (typeof id !== "string") {
-    return new NextResponse(
-      JSON.stringify({
-        status: "Bad Request",
-        message: "Parametar id must be a string",
-        response: null,
-        timestamp: dayjs().toISOString(),
-      }),
-      {
-        status: 400,
-      }
-    );
-  }
-
-  try {
-    const bookRef = doc(db, "books", id);
-    const bookSnapshot = await getDoc(bookRef);
-
-    if (!bookSnapshot.exists()) {
-      return new NextResponse(
-        JSON.stringify({
-          status: "Not Found",
-          message: `Book with id ${id} not found`,
-          response: null,
-          timestamp: dayjs().toISOString(),
-        }),
-        {
-          headers: {
-            "content-type": "application/json",
-          },
-          status: 404,
-        }
-      );
-    }
-
-    await deleteDoc(bookRef);
-
-    return new NextResponse(
-      JSON.stringify({
-        status: "OK",
-        message: `Book with id ${id} deleted`,
-        response: null,
-        timestamp: dayjs().toISOString(),
-      }),
-      {
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    );
-  } catch (e) {
-    console.log("Error deleting book", e);
-    return new NextResponse(
-      JSON.stringify({
-        status: "Internal Server Error",
-        message: "Error deleting book",
         response: null,
         timestamp: dayjs().toISOString(),
       }),
