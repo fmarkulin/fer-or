@@ -18,11 +18,11 @@ export async function GET() {
       },
     });
   } catch (e) {
-    console.log("error dumping data", e);
+    console.log("error dumping authors", e);
     return new NextResponse(
       JSON.stringify({
         status: "Internal Server Error",
-        message: "Error dumping authors",
+        message: "Error getting authors",
         response: null,
         timestamp: dayjs().toISOString(),
       }),
