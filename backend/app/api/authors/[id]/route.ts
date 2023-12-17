@@ -15,37 +15,30 @@ export async function GET(
     const authorRef = doc(db, "authors", id);
     const authorSnapshot = await getDoc(authorRef);
     if (!authorSnapshot.exists()) {
-      return new NextResponse(
-        JSON.stringify({
+      return NextResponse.json(
+        {
           status: "Not Found",
           message: `Author with id ${id} not found`,
           response: null,
           timestamp: dayjs().toISOString(),
-        }),
+        },
         {
-          headers: {
-            "content-type": "application/json",
-          },
           status: 404,
         }
       );
     }
 
     const author = authorSnapshot.data() as Author;
-    return new NextResponse(JSON.stringify(author, null, 2), {
-      headers: {
-        "content-type": "application/json",
-      },
-    });
+    return NextResponse.json(author);
   } catch (e) {
     console.log("error getting author", e);
-    return new NextResponse(
-      JSON.stringify({
+    return NextResponse.json(
+      {
         status: "Internal Server Error",
         message: "Error getting author data",
         response: null,
         timestamp: dayjs().toISOString(),
-      }),
+      },
       {
         status: 500,
       }

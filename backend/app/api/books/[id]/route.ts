@@ -18,17 +18,14 @@ export async function GET(
     const bookSnapshot = await getDoc(bookRef);
 
     if (!bookSnapshot.exists()) {
-      return new NextResponse(
-        JSON.stringify({
+      return NextResponse.json(
+        {
           status: "Not Found",
           message: `Book with id ${id} not found`,
           response: null,
           timestamp: dayjs().toISOString(),
-        }),
+        },
         {
-          headers: {
-            "content-type": "application/json",
-          },
           status: 404,
         }
       );
@@ -51,20 +48,16 @@ export async function GET(
       authors,
     };
 
-    return new NextResponse(JSON.stringify(bookExport, null, 2), {
-      headers: {
-        "content-type": "application/json",
-      },
-    });
+    return NextResponse.json(bookExport);
   } catch (e) {
     console.log("Error getting book data", e);
-    return new NextResponse(
-      JSON.stringify({
+    return NextResponse.json(
+      {
         status: "Internal Server Error",
         message: "Error getting book data",
         response: null,
         timestamp: dayjs().toISOString(),
-      }),
+      },
       {
         status: 500,
       }
@@ -84,17 +77,14 @@ export async function DELETE(
     const bookSnapshot = await getDoc(bookRef);
 
     if (!bookSnapshot.exists()) {
-      return new NextResponse(
-        JSON.stringify({
+      return NextResponse.json(
+        {
           status: "Not Found",
           message: `Book with id ${id} not found`,
           response: null,
           timestamp: dayjs().toISOString(),
-        }),
+        },
         {
-          headers: {
-            "content-type": "application/json",
-          },
           status: 404,
         }
       );
@@ -102,28 +92,21 @@ export async function DELETE(
 
     await deleteDoc(bookRef);
 
-    return new NextResponse(
-      JSON.stringify({
-        status: "OK",
-        message: `Book with id ${id} deleted`,
-        response: null,
-        timestamp: dayjs().toISOString(),
-      }),
-      {
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    );
+    return NextResponse.json({
+      status: "OK",
+      message: `Book with id ${id} deleted`,
+      response: bookSnapshot.data() as Book,
+      timestamp: dayjs().toISOString(),
+    });
   } catch (e) {
     console.log("Error deleting book", e);
-    return new NextResponse(
-      JSON.stringify({
+    return NextResponse.json(
+      {
         status: "Internal Server Error",
         message: "Error deleting book",
         response: null,
         timestamp: dayjs().toISOString(),
-      }),
+      },
       {
         status: 500,
       }
