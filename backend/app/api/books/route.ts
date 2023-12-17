@@ -120,13 +120,13 @@ export async function POST(req: NextRequest) {
       const bookRef = doc(db, "books", body.key);
       const bookSnapshot = await getDoc(bookRef);
       if (bookSnapshot.exists()) {
-        return (
-          NextResponse.json({
+        return NextResponse.json(
+          {
             status: "Conflict",
             message: "Book with this key already exists",
             response: bookSnapshot.data(),
             timestamp: dayjs().toISOString(),
-          }),
+          },
           {
             status: 409,
           }
@@ -201,6 +201,108 @@ export async function POST(req: NextRequest) {
         {
           status: "Internal Server Error",
           message: "Error creating book",
+          response: null,
+          timestamp: dayjs().toISOString(),
+        },
+        {
+          status: 500,
+        }
+      );
+    }
+  } catch (e) {
+    console.log("Error parsing request body", e);
+    return NextResponse.json(
+      {
+        status: "Bad Request",
+        message: "Error parsing request body",
+        response: null,
+        timestamp: dayjs().toISOString(),
+      },
+      {
+        status: 400,
+      }
+    );
+  }
+}
+
+export async function PUT(req: NextRequest) {
+  try {
+    const body = await req.json();
+    console.log(`${dayjs().toISOString()} POST /api/books`);
+
+    if (!isBook(body)) {
+      return NextResponse.json(
+        {
+          status: "Bad Request",
+          message: "Invalid book",
+          response: null,
+          timestamp: dayjs().toISOString(),
+        },
+        {
+          status: 400,
+        }
+      );
+    }
+
+    try {
+      for (const author of body.authors) {
+        const authorRef = doc(db, "authors", author);
+        const authorSnapshot = await getDoc(authorRef);
+        if (!authorSnapshot.exists()) {
+          return NextResponse.json(
+            {
+              status: "Not Found",
+              message: `Author with key ${author} not found`,
+              response: "GET /api/authors",
+              timestamp: dayjs().toISOString(),
+            },
+            {
+              status: 404,
+            }
+          );
+        }
+      }
+    } catch (e) {
+      console.log("Error checking if authors exist", e);
+      return NextResponse.json(
+        {
+          status: "Internal Server Error",
+          message: "Error checking if authors exist",
+          response: null,
+          timestamp: dayjs().toISOString(),
+        },
+        {
+          status: 500,
+        }
+      );
+    }
+
+    const book = body as Book;
+    const bookRef = doc(db, "books", book.key);
+    try {
+      const firestoreBook = await getDoc(bookRef);
+      let existed = false;
+      if (firestoreBook.exists()) {
+        existed = true;
+      }
+      await setDoc(bookRef, book);
+      return NextResponse.json(
+        {
+          status: "OK",
+          message: `Book ${existed ? "updated" : "created"}`,
+          response: `GET /api/books/${book.key}`,
+          timestamp: dayjs().toISOString(),
+        },
+        {
+          status: 200,
+        }
+      );
+    } catch (e) {
+      console.log("Error putting book", e);
+      return NextResponse.json(
+        {
+          status: "Internal Server Error",
+          message: "Error putting book",
           response: null,
           timestamp: dayjs().toISOString(),
         },
