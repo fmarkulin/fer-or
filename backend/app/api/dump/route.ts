@@ -12,17 +12,14 @@ export async function GET() {
     const booksRef = collection(db, "books");
     const booksSnapshot = await getDocs(booksRef);
     if (booksSnapshot.empty) {
-      return new NextResponse(
-        JSON.stringify({
+      return NextResponse.json(
+        {
           status: "Not Found",
           message: "No books found",
           response: null,
           timestamp: dayjs().toISOString(),
-        }),
+        },
         {
-          headers: {
-            "content-type": "application/json",
-          },
           status: 404,
         }
       );
@@ -45,20 +42,16 @@ export async function GET() {
       },
     };
 
-    return new NextResponse(JSON.stringify(dump, null, 2), {
-      headers: {
-        "content-type": "application/json",
-      },
-    });
+    return NextResponse.json(dump);
   } catch (e) {
     console.log("error dumping data", e);
-    return new NextResponse(
-      JSON.stringify({
+    return NextResponse.json(
+      {
         status: "Internal Server Error",
         message: "Error dumping data",
         response: null,
         timestamp: dayjs().toISOString(),
-      }),
+      },
       {
         status: 500,
       }

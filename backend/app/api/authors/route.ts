@@ -12,20 +12,16 @@ export async function GET() {
     const authorsSnapshot = await getDocs(authorsRef);
     const authors = authorsSnapshot.docs.map((doc) => doc.data() as Author);
 
-    return new NextResponse(JSON.stringify(authors, null, 2), {
-      headers: {
-        "content-type": "application/json",
-      },
-    });
+    return NextResponse.json(authors);
   } catch (e) {
     console.log("error dumping authors", e);
-    return new NextResponse(
-      JSON.stringify({
+    return NextResponse.json(
+      {
         status: "Internal Server Error",
         message: "Error getting authors",
         response: null,
         timestamp: dayjs().toISOString(),
-      }),
+      },
       {
         status: 500,
       }
