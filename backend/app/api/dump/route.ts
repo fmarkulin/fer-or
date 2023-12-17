@@ -6,7 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { NextResponse, type NextRequest } from "next/server";
 
 export async function GET() {
-  console.log(dayjs().toISOString() + " GET /api/books");
+  console.log(dayjs().toISOString() + " GET /api/dump");
 
   try {
     const booksRef = collection(db, "books");
