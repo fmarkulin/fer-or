@@ -6,7 +6,10 @@ import dayjs from "dayjs";
 import { DocumentReference, deleteDoc, doc, getDoc } from "firebase/firestore";
 import { NextResponse, type NextRequest } from "next/server";
 
-export async function GET({ params }: { params: { id: string } }) {
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
   const { id } = params;
   console.log(`${dayjs().toISOString()} GET /api/books/${id}`);
 
