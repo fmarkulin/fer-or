@@ -36,7 +36,7 @@ export async function GET(
       {
         status: "Internal Server Error",
         message: "Error getting author data",
-        response: null,
+        response: "",
         timestamp: dayjs().toISOString(),
       },
       {

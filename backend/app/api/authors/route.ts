@@ -15,7 +15,7 @@ export async function GET() {
         {
           status: "Not Found",
           message: "No authors found",
-          response: null,
+          response: "",
           timestamp: dayjs().toISOString(),
         },
         {
@@ -33,7 +33,7 @@ export async function GET() {
       {
         status: "Internal Server Error",
         message: "Error getting authors",
-        response: null,
+        response: "",
         timestamp: dayjs().toISOString(),
       },
       {

@@ -15,89 +15,38 @@ paths:
           description: Successful operation
           content:
             "application/json":
-              example:
-                {
-                  "collections":
-                    {
-                      "books":
-                        [
-                          {
-                            "title": 'Brodie''s Notes on Emily Bronte''s "Wuthering Heights" (Brodies Notes)',
-                            "type": "edition",
-                            "last_modified": "2022-11-15T20:13:03.789779",
-                            "publishers": ["Palgrave Macmillan"],
-                            "latest_revision": 13,
-                            "key": "OL10551435M",
-                            "revision": 13,
-                            "subjects":
-                              [
-                                "English literature: literary criticism",
-                                "Novels, other prose & writers: 19th century",
-                                "Designed / suitable for A & AS Level",
-                                "For National Curriculum Key Stage 4 & GCSE",
-                                "Study guides, home study & revision notes",
-                                "English",
-                                "Children: Young Adult (Gr. 7-9)",
-                              ],
-                            "number_of_pages": 127,
-                            "publish_date": "August 7, 1992",
-                            "authors": ["OL1158982A"],
-                          },
-                          {
-                            "subjects": ["Aristophanes"],
-                            "key": "OL13994901M",
-                            "last_modified": "2010-04-13T09:56:10.635564",
-                            "publish_date": "1913",
-                            "publishers": ["P. Schettlers"],
-                            "revision": 3,
-                            "authors": ["OL4473583A"],
-                            "title": "Aristophanes, ein Spiegel unserer Zeit.",
-                            "type": "edition",
-                            "latest_revision": 3,
-                            "number_of_pages": 78,
-                          },
-                        ],
-                      "authors":
-                        [
-                          {
-                            "last_modified": "2008-08-19 18:21:52.259027",
-                            "name": "Norman T. Carrington",
-                            "key": "OL1158982A",
-                            "revision": 2,
-                            "type": "author",
-                          },
-                          {
-                            "type": "author",
-                            "revision": 1,
-                            "last_modified": "2008-04-01 03:28:50.625462",
-                            "key": "OL2153880A",
-                            "name": "Rose, A.",
-                          },
-                        ],
-                    },
-                }
+              schema:
+                $ref: "#/components/schemas/Dump"
         "404":
           description: No books found
           content:
             "application/json":
-              example:
-                {
-                  "status": "Not Found",
-                  "message": "No books found",
-                  "response": null,
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Not Found",
+                      "message": "No books found",
+                      "response": "",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
         "500":
           description: Internal Server Error while dumping data
           content:
             "application/json":
-              example:
-                {
-                  "status": "Internal Server Error",
-                  "message": "Error dumping data",
-                  "response": null,
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Internal Server Error",
+                      "message": "Error dumping data",
+                      "response": "",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
   /api/books:
     get:
       tags:
@@ -116,24 +65,32 @@ paths:
           description: No books found
           content:
             "application/json":
-              example:
-                {
-                  "status": "Not Found",
-                  "message": "No books found",
-                  "response": null,
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Not Found",
+                      "message": "No books found",
+                      "response": "",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
         "500":
           description: Internal Server Error while getting books
           content:
             "application/json":
-              example:
-                {
-                  "status": "Internal Server Error",
-                  "message": "Error getting books",
-                  "response": null,
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Internal Server Error",
+                      "message": "Error getting books",
+                      "response": "",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
     post:
       tags:
         - books
@@ -150,88 +107,108 @@ paths:
           description: Successful operation
           content:
             "application/json":
-              example:
-                {
-                  "status": "OK",
-                  "message": "Book created",
-                  "response": "GET /api/books/{id}",
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "OK",
+                      "message": "Book created",
+                      "response": "GET /api/books/{id}",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
         "400":
           description: Invalid body or book
           content:
             "application/json":
-              example:
-                {
-                  "status": "Bad Request",
-                  "message": "Invalid book",
-                  "response": null,
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Bad Request",
+                      "message": "Invalid book",
+                      "response": "",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
         "404":
           description: Author for book not found
           content:
             "application/json":
-              example:
-                {
-                  "status": "Not Found",
-                  "message": "Author with key {key} not found",
-                  "response": "GET /api/authors",
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Not Found",
+                      "message": "Author with key {key} not found",
+                      "response": "GET /api/authors",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
         "409":
           description: Book with this key already exists
           content:
             "application/json":
-              example:
-                {
-                  "status": "Conflict",
-                  "message": "Book with this key already exists",
-                  "response":
+              schema:
+                $ref: "#/components/schemas/ResponseWithBook"
+                examples:
+                  [
                     {
-                      "number_of_pages": 127,
-                      "title": 'Brodie''s Notes on Emily Bronte''s "Wuthering Heights" (Brodies Notes)',
-                      "publish_date": "August 7, 1992",
-                      "publishers": ["Palgrave Macmillan"],
-                      "last_modified": "2022-11-15T20:13:03.789779",
-                      "type": "edition",
-                      "revision": 13,
-                      "latest_revision": 13,
-                      "authors":
-                        [
-                          {
-                            "last_modified": "2008-08-19 18:21:52.259027",
-                            "type": "author",
-                            "name": "Norman T. Carrington",
-                            "key": "OL1158982A",
-                            "revision": 2,
-                          },
-                        ],
-                      "key": "OL10551435M",
-                      "subjects":
-                        [
-                          "English literature: literary criticism",
-                          "Novels, other prose & writers: 19th century",
-                          "Designed / suitable for A & AS Level",
-                          "For National Curriculum Key Stage 4 & GCSE",
-                          "Study guides, home study & revision notes",
-                          "English",
-                          "Children: Young Adult (Gr. 7-9)",
-                        ],
+                      "status": "Conflict",
+                      "message": "Book with this key already exists",
+                      "response":
+                        {
+                          "number_of_pages": 127,
+                          "title": 'Brodie''s Notes on Emily Bronte''s "Wuthering Heights" (Brodies Notes)',
+                          "publish_date": "August 7, 1992",
+                          "publishers": ["Palgrave Macmillan"],
+                          "last_modified": "2022-11-15T20:13:03.789779",
+                          "type": "edition",
+                          "revision": 13,
+                          "latest_revision": 13,
+                          "authors":
+                            [
+                              {
+                                "last_modified": "2008-08-19 18:21:52.259027",
+                                "type": "author",
+                                "name": "Norman T. Carrington",
+                                "key": "OL1158982A",
+                                "revision": 2,
+                              },
+                            ],
+                          "key": "OL10551435M",
+                          "subjects":
+                            [
+                              "English literature: literary criticism",
+                              "Novels, other prose & writers: 19th century",
+                              "Designed / suitable for A & AS Level",
+                              "For National Curriculum Key Stage 4 & GCSE",
+                              "Study guides, home study & revision notes",
+                              "English",
+                              "Children: Young Adult (Gr. 7-9)",
+                            ],
+                        },
+                      "timestamp": "2023-12-18T10:24:10.044Z",
                     },
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+                  ]
         "500":
           description: Internal Server Error while adding book
           content:
             "application/json":
-              example:
-                {
-                  "status": "Internal Server Error",
-                  "message": "Error putting book",
-                  "response": null,
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Internal Server Error",
+                      "message": "Error putting book",
+                      "response": "",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
     put:
       tags:
         - books
@@ -248,46 +225,63 @@ paths:
           description: Successful operation
           content:
             "application/json":
-              example:
-                {
-                  "status": "OK",
-                  "message": "Book updated/created",
-                  "response": "GET /api/books/{id}",
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+
+                examples:
+                  [
+                    {
+                      "status": "OK",
+                      "message": "Book updated/created",
+                      "response": "GET /api/books/{id}",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
         "400":
           description: Invalid body or book
           content:
             "application/json":
-              example:
-                {
-                  "status": "Bad Request",
-                  "message": "Invalid book",
-                  "response": null,
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Bad Request",
+                      "message": "Invalid book",
+                      "response": "",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
         "404":
           description: Author for book not found
           content:
             "application/json":
-              example:
-                {
-                  "status": "Not Found",
-                  "message": "Author with key {key} not found",
-                  "response": "GET /api/authors",
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Not Found",
+                      "message": "Author with key {key} not found",
+                      "response": "GET /api/authors",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
         "500":
           description: Internal Server Error while adding or updating book
           content:
             "application/json":
-              example:
-                {
-                  "status": "Internal Server Error",
-                  "message": "Error putting book",
-                  "response": null,
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Internal Server Error",
+                      "message": "Error putting book",
+                      "response": "",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
   /api/books/{id}:
     get:
       tags:
@@ -306,24 +300,32 @@ paths:
           description: Book with id {id} not found
           content:
             "application/json":
-              example:
-                {
-                  "status": "Not Found",
-                  "message": "Book with id {id} not found",
-                  "response": "GET /api/books",
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Not Found",
+                      "message": "Book with id {id} not found",
+                      "response": "GET /api/books",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
         "500":
           description: Internal Server Error while getting book
           content:
             "application/json":
-              example:
-                {
-                  "status": "Internal Server Error",
-                  "message": "Error getting book data",
-                  "response": null,
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Internal Server Error",
+                      "message": "Error getting book data",
+                      "response": "",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
     delete:
       tags:
         - books
@@ -335,54 +337,66 @@ paths:
           description: Successful operation
           content:
             "application/json":
-              example:
-                {
-                  "status": "OK",
-                  "message": "Book with id {id} deleted",
-                  "response":
+              schema:
+                $ref: "#/components/schemas/ResponseWithBook"
+                examples:
+                  [
                     {
-                      "publishers": ["IDG Books Worldwide"],
-                      "number_of_pages": 331,
-                      "latest_revision": 10,
-                      "key": "OL824543M",
-                      "authors": ["OL51749A"],
-                      "title": "VCRs & camcorders for dummies",
-                      "subjects":
-                        [
-                          "Home video systems.",
-                          "Video tape recorders.",
-                          "Camcorders.",
-                          "Television -- Equipment and supplies.",
-                        ],
-                      "publish_date": "1995",
-                      "last_modified": "2020-11-20T15:58:35.964496",
-                      "type": "edition",
-                      "revision": 10,
+                      "status": "OK",
+                      "message": "Book with id {id} deleted",
+                      "response":
+                        {
+                          "publishers": ["IDG Books Worldwide"],
+                          "number_of_pages": 331,
+                          "latest_revision": 10,
+                          "key": "OL824543M",
+                          "authors": ["OL51749A"],
+                          "title": "VCRs & camcorders for dummies",
+                          "subjects":
+                            [
+                              "Home video systems.",
+                              "Video tape recorders.",
+                              "Camcorders.",
+                              "Television -- Equipment and supplies.",
+                            ],
+                          "publish_date": "1995",
+                          "last_modified": "2020-11-20T15:58:35.964496",
+                          "type": "edition",
+                          "revision": 10,
+                        },
+                      "timestamp": "2023-12-18T10:24:10.044Z",
                     },
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+                  ]
         "404":
           description: Book with id {id} not found
           content:
             "application/json":
-              example:
-                {
-                  "status": "Not Found",
-                  "message": "Book with id {id} not found",
-                  "response": "GET /api/books",
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Not Found",
+                      "message": "Book with id {id} not found",
+                      "response": "GET /api/books",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
         "500":
           description: Internal Server Error while deleting book
           content:
             "application/json":
-              example:
-                {
-                  "status": "Internal Server Error",
-                  "message": "Error deleting book",
-                  "response": null,
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Internal Server Error",
+                      "message": "Error deleting book",
+                      "response": "",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
   /api/authors:
     get:
       tags:
@@ -401,24 +415,32 @@ paths:
           description: No authors found
           content:
             "application/json":
-              example:
-                {
-                  "status": "Not Found",
-                  "message": "No authors found",
-                  "response": null,
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Not Found",
+                      "message": "No authors found",
+                      "response": "",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
         "500":
           description: Internal Server Error while getting authors
           content:
             "application/json":
-              example:
-                {
-                  "status": "Internal Server Error",
-                  "message": "Error getting authors",
-                  "response": null,
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Internal Server Error",
+                      "message": "Error getting authors",
+                      "response": "",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
   /api/authors/{id}:
     get:
       tags:
@@ -437,24 +459,32 @@ paths:
           description: Author with id {id} not found
           content:
             "application/json":
-              example:
-                {
-                  "status": "Not Found",
-                  "message": "Author with id {id} not found",
-                  "response": "GET /api/authors",
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Not Found",
+                      "message": "Author with id {id} not found",
+                      "response": "GET /api/authors",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
         "500":
           description: Internal Server Error while getting author
           content:
             "application/json":
-              example:
-                {
-                  "status": "Internal Server Error",
-                  "message": "Error getting author data",
-                  "response": null,
-                  "timestamp": "2023-12-18T10:24:10.044Z",
-                }
+              schema:
+                $ref: "#/components/schemas/Response"
+                examples:
+                  [
+                    {
+                      "status": "Internal Server Error",
+                      "message": "Error getting author data",
+                      "response": "",
+                      "timestamp": "2023-12-18T10:24:10.044Z",
+                    },
+                  ]
 components:
   schemas:
     Book:
@@ -802,3 +832,779 @@ components:
               - World War, 1939-1945 -- Campaigns -- Europe.
               - World War, 1939-1945 -- Campaigns -- Europe -- Pictorial works.
             latest_revision: 10
+    Dump:
+      type: object
+      properties:
+        collections:
+          type: object
+          properties:
+            books:
+              type: array
+              default: []
+              title: The Books and their authors Schema
+              description: A list of books and their authors
+              items:
+                type: object
+                title: A Books and their authors properties Schema
+                required:
+                  - number_of_pages
+                  - title
+                  - publish_date
+                  - publishers
+                  - last_modified
+                  - type
+                  - revision
+                  - latest_revision
+                  - authors
+                  - key
+                  - subjects
+                properties:
+                  number_of_pages:
+                    type: integer
+                    title: The number_of_pages Schema
+                    description: Number of pages in the book
+                    examples:
+                      - 127
+                      - 78
+                      - 192
+                      - 26
+                      - 200
+                      - 48
+                      - 298
+                      - 331
+                      - 96
+                  title:
+                    type: string
+                    title: The title Schema
+                    description: The title of the book
+                    examples:
+                      - Brodie's Notes on Emily Bronte's "Wuthering Heights" (Brodies Notes)
+                      - Aristophanes, ein Spiegel unserer Zeit.
+                      - War in Europe
+                      - VCRs & camcorders for dummies
+                  publish_date:
+                    type: string
+                    title: The publish_date Schema
+                    description: The date the book was published
+                    examples:
+                      - August 7, 1992
+                      - "1913"
+                  publishers:
+                    type: array
+                    title: The publishers Schema
+                    description: The publishers of the book
+                    items:
+                      type: string
+                      title: A publisher Schema
+                      examples:
+                        - Palgrave Macmillan
+                        - P. Schettlers
+                        - Presidio
+                    examples:
+                      - - Palgrave Macmillan
+                      - - P. Schettlers
+                      - - Presidio
+                      - - Palgrave Macmillan
+                        - Presidio
+                  last_modified:
+                    type: string
+                    title: The last_modified Schema
+                    description: The timestamp the book was last modified
+                    examples:
+                      - "2022-11-15T20:13:03.789779"
+                      - "2022-12-17T03:01:10.857196"
+                  type:
+                    type: string
+                    title: The type Schema
+                    description: The type of the book
+                    examples:
+                      - edition
+                  revision:
+                    type: integer
+                    title: The revision Schema
+                    description: The revision of the book
+                    examples:
+                      - 13
+                      - 3
+                      - 10
+                      - 5
+                      - 2
+                      - 6
+                  latest_revision:
+                    type: integer
+                    title: The latest_revision Schema
+                    description: The latest revision of the book
+                    examples:
+                      - 13
+                      - 3
+                      - 10
+                      - 5
+                      - 2
+                      - 6
+                  authors:
+                    type: array
+                    title: The authors Schema
+                    description: The authors of the book
+                    items:
+                      type: object
+                      title: A author Schema
+                      description: A author of the book
+                      required:
+                        - last_modified
+                        - type
+                        - name
+                        - key
+                        - revision
+                      properties:
+                        last_modified:
+                          type: string
+                          title: The last_modified Schema
+                          examples:
+                            - "2008-08-30 03:01:23.375753"
+                            - "2008-04-29 15:03:11.581851"
+                        type:
+                          type: string
+                          title: The type Schema
+                          description: The type of the entry
+                          examples:
+                            - author
+                        name:
+                          type: string
+                          title: The name Schema
+                          description: The name of the author
+                          examples:
+                            - Norman T. Carrington
+                            - A. B Kneisel
+                            - Sidney C. Moody
+                            - W. E. Hamilton
+                            - Walker, John
+                            - L. N. Carrier
+                            - Rose, A.
+                            - Gordon McComb
+                            - Marie Jones
+                            - Lorna Read
+                        key:
+                          type: string
+                          title: The key Schema
+                          description: The key of the author
+                          examples:
+                            - OL1158982A
+                            - OL4473583A
+                            - OL581008A
+                            - OL5295787A
+                            - OL2555401A
+                            - OL5288239A
+                            - OL2153880A
+                            - OL51749A
+                            - OL500580A
+                            - OL2802829A
+                        revision:
+                          type: integer
+                          title: The revision Schema
+                          description: The revision of the author
+                          examples:
+                            - 2
+                            - 1
+                      examples:
+                        - last_modified: "2008-08-19 18:21:52.259027"
+                          type: author
+                          name: Norman T. Carrington
+                          key: OL1158982A
+                          revision: 2
+                        - type: author
+                          name: A. B Kneisel
+                          last_modified: "2008-09-02 18:39:32.675717"
+                          revision: 1
+                          key: OL4473583A
+                    examples:
+                      - - last_modified: "2008-08-19 18:21:52.259027"
+                          type: author
+                          name: Norman T. Carrington
+                          key: OL1158982A
+                          revision: 2
+                      - - type: author
+                          name: A. B Kneisel
+                          last_modified: "2008-09-02 18:39:32.675717"
+                          revision: 1
+                          key: OL4473583A
+                  key:
+                    type: string
+                    title: The key Schema
+                    description: The key of the book
+                    examples:
+                      - OL10551435M
+                      - OL13994901M
+                  subjects:
+                    type: array
+                    title: The subjects Schema
+                    description: The subjects of the book
+                    items:
+                      type: string
+                      title: A subject Schema
+                      examples:
+                        - "English literature: literary criticism"
+                        - "Novels, other prose & writers: 19th century"
+                        - English
+                        - World War, 1939-1945 -- Campaigns -- Europe.
+                    examples:
+                      - - "English literature: literary criticism"
+                        - "Novels, other prose & writers: 19th century"
+                        - Designed / suitable for A & AS Level
+                        - For National Curriculum Key Stage 4 & GCSE
+                        - Study guides, home study & revision notes
+                        - English
+                        - "Children: Young Adult (Gr. 7-9)"
+                      - - Aristophanes
+                      - - World War, 1939-1945 -- Campaigns -- Europe.
+                        - World War, 1939-1945 -- Campaigns -- Europe -- Pictorial works.
+                examples:
+                  - number_of_pages: 127
+                    title: Brodie's Notes on Emily Bronte's "Wuthering Heights" (Brodies Notes)
+                    publish_date: August 7, 1992
+                    publishers:
+                      - Palgrave Macmillan
+                    last_modified: "2022-11-15T20:13:03.789779"
+                    type: edition
+                    revision: 13
+                    latest_revision: 13
+                    authors:
+                      - last_modified: "2008-08-19 18:21:52.259027"
+                        type: author
+                        name: Norman T. Carrington
+                        key: OL1158982A
+                        revision: 2
+                    key: OL10551435M
+                    subjects:
+                      - "English literature: literary criticism"
+                      - "Novels, other prose & writers: 19th century"
+                      - Designed / suitable for A & AS Level
+                      - For National Curriculum Key Stage 4 & GCSE
+                      - Study guides, home study & revision notes
+                      - English
+                      - "Children: Young Adult (Gr. 7-9)"
+                  - revision: 3
+                    publishers:
+                      - P. Schettlers
+                    key: OL13994901M
+                    number_of_pages: 78
+                    type: edition
+                    latest_revision: 3
+                    title: Aristophanes, ein Spiegel unserer Zeit.
+                    subjects:
+                      - Aristophanes
+                    authors:
+                      - type: author
+                        name: A. B Kneisel
+                        last_modified: "2008-09-02 18:39:32.675717"
+                        revision: 1
+                        key: OL4473583A
+                    publish_date: "1913"
+                    last_modified: "2010-04-13T09:56:10.635564"
+                  - revision: 10
+                    type: edition
+                    key: OL1413776M
+                    publish_date: "1993"
+                    authors:
+                      - type: author
+                        name: Sidney C. Moody
+                        last_modified: "2008-08-30 03:01:23.375753"
+                        key: OL581008A
+                        revision: 2
+                    publishers:
+                      - Presidio
+                    title: War in Europe
+                    number_of_pages: 192
+                    last_modified: "2022-12-05T06:01:35.024861"
+                    subjects:
+                      - World War, 1939-1945 -- Campaigns -- Europe.
+                      - World War, 1939-1945 -- Campaigns -- Europe -- Pictorial works.
+                    latest_revision: 10
+              examples:
+                - - number_of_pages: 127
+                    title: Brodie's Notes on Emily Bronte's "Wuthering Heights" (Brodies Notes)
+                    publish_date: August 7, 1992
+                    publishers:
+                      - Palgrave Macmillan
+                    last_modified: "2022-11-15T20:13:03.789779"
+                    type: edition
+                    revision: 13
+                    latest_revision: 13
+                    authors:
+                      - last_modified: "2008-08-19 18:21:52.259027"
+                        type: author
+                        name: Norman T. Carrington
+                        key: OL1158982A
+                        revision: 2
+                    key: OL10551435M
+                    subjects:
+                      - "English literature: literary criticism"
+                      - "Novels, other prose & writers: 19th century"
+                      - Designed / suitable for A & AS Level
+                      - For National Curriculum Key Stage 4 & GCSE
+                      - Study guides, home study & revision notes
+                      - English
+                      - "Children: Young Adult (Gr. 7-9)"
+                  - revision: 3
+                    publishers:
+                      - P. Schettlers
+                    key: OL13994901M
+                    number_of_pages: 78
+                    type: edition
+                    latest_revision: 3
+                    title: Aristophanes, ein Spiegel unserer Zeit.
+                    subjects:
+                      - Aristophanes
+                    authors:
+                      - type: author
+                        name: A. B Kneisel
+                        last_modified: "2008-09-02 18:39:32.675717"
+                        revision: 1
+                        key: OL4473583A
+                    publish_date: "1913"
+                    last_modified: "2010-04-13T09:56:10.635564"
+                  - revision: 10
+                    type: edition
+                    key: OL1413776M
+                    publish_date: "1993"
+                    authors:
+                      - type: author
+                        name: Sidney C. Moody
+                        last_modified: "2008-08-30 03:01:23.375753"
+                        key: OL581008A
+                        revision: 2
+                    publishers:
+                      - Presidio
+                    title: War in Europe
+                    number_of_pages: 192
+                    last_modified: "2022-12-05T06:01:35.024861"
+                    subjects:
+                      - World War, 1939-1945 -- Campaigns -- Europe.
+                      - World War, 1939-1945 -- Campaigns -- Europe -- Pictorial works.
+                    latest_revision: 10
+            authors:
+              type: array
+              title: The authors Schema
+              description: The authors of the book
+              items:
+                type: object
+                title: A author Schema
+                description: A author of the book
+                required:
+                  - last_modified
+                  - type
+                  - name
+                  - key
+                  - revision
+                properties:
+                  last_modified:
+                    type: string
+                    title: The last_modified Schema
+                    examples:
+                      - "2008-08-30 03:01:23.375753"
+                      - "2008-04-29 15:03:11.581851"
+                  type:
+                    type: string
+                    title: The type Schema
+                    description: The type of the entry
+                    examples:
+                      - author
+                  name:
+                    type: string
+                    title: The name Schema
+                    description: The name of the author
+                    examples:
+                      - Norman T. Carrington
+                      - A. B Kneisel
+                      - Sidney C. Moody
+                      - W. E. Hamilton
+                      - Walker, John
+                      - L. N. Carrier
+                      - Rose, A.
+                      - Gordon McComb
+                      - Marie Jones
+                      - Lorna Read
+                  key:
+                    type: string
+                    title: The key Schema
+                    description: The key of the author
+                    examples:
+                      - OL1158982A
+                      - OL4473583A
+                      - OL581008A
+                      - OL5295787A
+                      - OL2555401A
+                      - OL5288239A
+                      - OL2153880A
+                      - OL51749A
+                      - OL500580A
+                      - OL2802829A
+                  revision:
+                    type: integer
+                    title: The revision Schema
+                    description: The revision of the author
+                    examples:
+                      - 2
+                      - 1
+                examples:
+                  - last_modified: "2008-08-19 18:21:52.259027"
+                    type: author
+                    name: Norman T. Carrington
+                    key: OL1158982A
+                    revision: 2
+                  - type: author
+                    name: A. B Kneisel
+                    last_modified: "2008-09-02 18:39:32.675717"
+                    revision: 1
+                    key: OL4473583A
+              examples:
+                - - last_modified: "2008-08-19 18:21:52.259027"
+                    type: author
+                    name: Norman T. Carrington
+                    key: OL1158982A
+                    revision: 2
+                - - type: author
+                    name: A. B Kneisel
+                    last_modified: "2008-09-02 18:39:32.675717"
+                    revision: 1
+                    key: OL4473583A
+    Response:
+      type: object
+      properties:
+        status:
+          type: string
+          examples: [OK, Bad Request, Not Found, Internal Server Error]
+        message:
+          type: string
+          examples:
+            - Book with id {id} deleted
+            - Invalid book
+            - Author with key {key} not found
+            - Error deleting book
+            - Error getting book data
+            - Error getting authors
+            - Error putting book
+        response:
+          type: string
+          examples:
+            - GET /api/books
+            - GET /api/authors
+            - GET /api/books/{id}
+            - ""
+        timestamp:
+          type: string
+          examples:
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"
+    ResponseWithBook:
+      type: object
+      properties:
+        status:
+          type: string
+          examples: [OK, Bad Request, Not Found, Internal Server Error]
+        message:
+          type: string
+          examples:
+            - Book with id {id} deleted
+            - Invalid book
+            - Author with key {key} not found
+            - Error deleting book
+            - Error getting book data
+            - Error getting authors
+            - Error putting book
+        response:
+          type: object
+          title: A Books and their authors properties Schema
+          required:
+            - number_of_pages
+            - title
+            - publish_date
+            - publishers
+            - last_modified
+            - type
+            - revision
+            - latest_revision
+            - authors
+            - key
+            - subjects
+          properties:
+            number_of_pages:
+              type: integer
+              title: The number_of_pages Schema
+              description: Number of pages in the book
+              examples:
+                - 127
+                - 78
+                - 192
+                - 26
+                - 200
+                - 48
+                - 298
+                - 331
+                - 96
+            title:
+              type: string
+              title: The title Schema
+              description: The title of the book
+              examples:
+                - Brodie's Notes on Emily Bronte's "Wuthering Heights" (Brodies Notes)
+                - Aristophanes, ein Spiegel unserer Zeit.
+                - War in Europe
+                - VCRs & camcorders for dummies
+            publish_date:
+              type: string
+              title: The publish_date Schema
+              description: The date the book was published
+              examples:
+                - August 7, 1992
+                - "1913"
+            publishers:
+              type: array
+              title: The publishers Schema
+              description: The publishers of the book
+              items:
+                type: string
+                title: A publisher Schema
+                examples:
+                  - Palgrave Macmillan
+                  - P. Schettlers
+                  - Presidio
+              examples:
+                - - Palgrave Macmillan
+                - - P. Schettlers
+                - - Presidio
+                - - Palgrave Macmillan
+                  - Presidio
+            last_modified:
+              type: string
+              title: The last_modified Schema
+              description: The timestamp the book was last modified
+              examples:
+                - "2022-11-15T20:13:03.789779"
+                - "2022-12-17T03:01:10.857196"
+            type:
+              type: string
+              title: The type Schema
+              description: The type of the book
+              examples:
+                - edition
+            revision:
+              type: integer
+              title: The revision Schema
+              description: The revision of the book
+              examples:
+                - 13
+                - 3
+                - 10
+                - 5
+                - 2
+                - 6
+            latest_revision:
+              type: integer
+              title: The latest_revision Schema
+              description: The latest revision of the book
+              examples:
+                - 13
+                - 3
+                - 10
+                - 5
+                - 2
+                - 6
+            authors:
+              type: array
+              title: The authors Schema
+              description: The authors of the book
+              items:
+                type: object
+                title: A author Schema
+                description: A author of the book
+                required:
+                  - last_modified
+                  - type
+                  - name
+                  - key
+                  - revision
+                properties:
+                  last_modified:
+                    type: string
+                    title: The last_modified Schema
+                    examples:
+                      - "2008-08-30 03:01:23.375753"
+                      - "2008-04-29 15:03:11.581851"
+                  type:
+                    type: string
+                    title: The type Schema
+                    description: The type of the entry
+                    examples:
+                      - author
+                  name:
+                    type: string
+                    title: The name Schema
+                    description: The name of the author
+                    examples:
+                      - Norman T. Carrington
+                      - A. B Kneisel
+                      - Sidney C. Moody
+                      - W. E. Hamilton
+                      - Walker, John
+                      - L. N. Carrier
+                      - Rose, A.
+                      - Gordon McComb
+                      - Marie Jones
+                      - Lorna Read
+                  key:
+                    type: string
+                    title: The key Schema
+                    description: The key of the author
+                    examples:
+                      - OL1158982A
+                      - OL4473583A
+                      - OL581008A
+                      - OL5295787A
+                      - OL2555401A
+                      - OL5288239A
+                      - OL2153880A
+                      - OL51749A
+                      - OL500580A
+                      - OL2802829A
+                  revision:
+                    type: integer
+                    title: The revision Schema
+                    description: The revision of the author
+                    examples:
+                      - 2
+                      - 1
+                examples:
+                  - last_modified: "2008-08-19 18:21:52.259027"
+                    type: author
+                    name: Norman T. Carrington
+                    key: OL1158982A
+                    revision: 2
+                  - type: author
+                    name: A. B Kneisel
+                    last_modified: "2008-09-02 18:39:32.675717"
+                    revision: 1
+                    key: OL4473583A
+              examples:
+                - - last_modified: "2008-08-19 18:21:52.259027"
+                    type: author
+                    name: Norman T. Carrington
+                    key: OL1158982A
+                    revision: 2
+                - - type: author
+                    name: A. B Kneisel
+                    last_modified: "2008-09-02 18:39:32.675717"
+                    revision: 1
+                    key: OL4473583A
+            key:
+              type: string
+              title: The key Schema
+              description: The key of the book
+              examples:
+                - OL10551435M
+                - OL13994901M
+            subjects:
+              type: array
+              title: The subjects Schema
+              description: The subjects of the book
+              items:
+                type: string
+                title: A subject Schema
+                examples:
+                  - "English literature: literary criticism"
+                  - "Novels, other prose & writers: 19th century"
+                  - English
+                  - World War, 1939-1945 -- Campaigns -- Europe.
+              examples:
+                - - "English literature: literary criticism"
+                  - "Novels, other prose & writers: 19th century"
+                  - Designed / suitable for A & AS Level
+                  - For National Curriculum Key Stage 4 & GCSE
+                  - Study guides, home study & revision notes
+                  - English
+                  - "Children: Young Adult (Gr. 7-9)"
+                - - Aristophanes
+                - - World War, 1939-1945 -- Campaigns -- Europe.
+                  - World War, 1939-1945 -- Campaigns -- Europe -- Pictorial works.
+          examples:
+            - number_of_pages: 127
+              title: Brodie's Notes on Emily Bronte's "Wuthering Heights" (Brodies Notes)
+              publish_date: August 7, 1992
+              publishers:
+                - Palgrave Macmillan
+              last_modified: "2022-11-15T20:13:03.789779"
+              type: edition
+              revision: 13
+              latest_revision: 13
+              authors:
+                - last_modified: "2008-08-19 18:21:52.259027"
+                  type: author
+                  name: Norman T. Carrington
+                  key: OL1158982A
+                  revision: 2
+              key: OL10551435M
+              subjects:
+                - "English literature: literary criticism"
+                - "Novels, other prose & writers: 19th century"
+                - Designed / suitable for A & AS Level
+                - For National Curriculum Key Stage 4 & GCSE
+                - Study guides, home study & revision notes
+                - English
+                - "Children: Young Adult (Gr. 7-9)"
+            - revision: 3
+              publishers:
+                - P. Schettlers
+              key: OL13994901M
+              number_of_pages: 78
+              type: edition
+              latest_revision: 3
+              title: Aristophanes, ein Spiegel unserer Zeit.
+              subjects:
+                - Aristophanes
+              authors:
+                - type: author
+                  name: A. B Kneisel
+                  last_modified: "2008-09-02 18:39:32.675717"
+                  revision: 1
+                  key: OL4473583A
+              publish_date: "1913"
+              last_modified: "2010-04-13T09:56:10.635564"
+            - revision: 10
+              type: edition
+              key: OL1413776M
+              publish_date: "1993"
+              authors:
+                - type: author
+                  name: Sidney C. Moody
+                  last_modified: "2008-08-30 03:01:23.375753"
+                  key: OL581008A
+                  revision: 2
+              publishers:
+                - Presidio
+              title: War in Europe
+              number_of_pages: 192
+              last_modified: "2022-12-05T06:01:35.024861"
+              subjects:
+                - World War, 1939-1945 -- Campaigns -- Europe.
+                - World War, 1939-1945 -- Campaigns -- Europe -- Pictorial works.
+              latest_revision: 10
+        timestamp:
+          type: string
+          examples:
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"
+            - "2023-12-18T10:24:10.044Z"

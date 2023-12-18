@@ -48,7 +48,7 @@ export async function GET(req: NextRequest) {
         {
           status: "Not Found",
           message: "No books found",
-          response: null,
+          response: "",
           timestamp: dayjs().toISOString(),
         },
         {
@@ -87,7 +87,7 @@ export async function GET(req: NextRequest) {
       {
         status: "Internal Server Error",
         message: "Error getting books",
-        response: null,
+        response: "",
         timestamp: dayjs().toISOString(),
       },
       {
@@ -107,7 +107,7 @@ export async function POST(req: NextRequest) {
         {
           status: "Bad Request",
           message: "Invalid book",
-          response: null,
+          response: "",
           timestamp: dayjs().toISOString(),
         },
         {
@@ -138,7 +138,7 @@ export async function POST(req: NextRequest) {
         {
           status: "Internal Server Error",
           message: "Error checking if book exists",
-          response: null,
+          response: "",
           timestamp: dayjs().toISOString(),
         },
         {
@@ -171,7 +171,7 @@ export async function POST(req: NextRequest) {
         {
           status: "Internal Server Error",
           message: "Error checking if authors exist",
-          response: null,
+          response: "",
           timestamp: dayjs().toISOString(),
         },
         {
@@ -201,7 +201,7 @@ export async function POST(req: NextRequest) {
         {
           status: "Internal Server Error",
           message: "Error creating book",
-          response: null,
+          response: "",
           timestamp: dayjs().toISOString(),
         },
         {
@@ -215,7 +215,7 @@ export async function POST(req: NextRequest) {
       {
         status: "Bad Request",
         message: "Error parsing request body",
-        response: null,
+        response: "",
         timestamp: dayjs().toISOString(),
       },
       {
@@ -235,7 +235,7 @@ export async function PUT(req: NextRequest) {
         {
           status: "Bad Request",
           message: "Invalid book",
-          response: null,
+          response: "",
           timestamp: dayjs().toISOString(),
         },
         {
@@ -268,7 +268,7 @@ export async function PUT(req: NextRequest) {
         {
           status: "Internal Server Error",
           message: "Error checking if authors exist",
-          response: null,
+          response: "",
           timestamp: dayjs().toISOString(),
         },
         {
@@ -303,7 +303,7 @@ export async function PUT(req: NextRequest) {
         {
           status: "Internal Server Error",
           message: "Error putting book",
-          response: null,
+          response: "",
           timestamp: dayjs().toISOString(),
         },
         {
@@ -317,7 +317,7 @@ export async function PUT(req: NextRequest) {
       {
         status: "Bad Request",
         message: "Error parsing request body",
-        response: null,
+        response: "",
         timestamp: dayjs().toISOString(),
       },
       {

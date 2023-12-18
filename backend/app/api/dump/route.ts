@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
         {
           status: "Not Found",
           message: "No books found",
-          response: null,
+          response: "",
           timestamp: dayjs().toISOString(),
         },
         {
@@ -49,7 +49,7 @@ export async function GET(req: NextRequest) {
       {
         status: "Internal Server Error",
         message: "Error dumping data",
-        response: null,
+        response: "",
         timestamp: dayjs().toISOString(),
       },
       {

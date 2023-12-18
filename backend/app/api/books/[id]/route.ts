@@ -55,7 +55,7 @@ export async function GET(
       {
         status: "Internal Server Error",
         message: "Error getting book data",
-        response: null,
+        response: "",
         timestamp: dayjs().toISOString(),
       },
       {
@@ -104,7 +104,7 @@ export async function DELETE(
       {
         status: "Internal Server Error",
         message: "Error deleting book",
-        response: null,
+        response: "",
         timestamp: dayjs().toISOString(),
       },
       {
