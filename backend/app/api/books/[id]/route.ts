@@ -22,7 +22,7 @@ export async function GET(
         {
           status: "Not Found",
           message: `Book with id ${id} not found`,
-          response: null,
+          response: "GET /api/books",
           timestamp: dayjs().toISOString(),
         },
         {
@@ -81,7 +81,7 @@ export async function DELETE(
         {
           status: "Not Found",
           message: `Book with id ${id} not found`,
-          response: null,
+          response: "GET /api/books",
           timestamp: dayjs().toISOString(),
         },
         {

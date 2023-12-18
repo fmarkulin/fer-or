@@ -19,7 +19,7 @@ export async function GET(
         {
           status: "Not Found",
           message: `Author with id ${id} not found`,
-          response: null,
+          response: "GET /api/authors",
           timestamp: dayjs().toISOString(),
         },
         {

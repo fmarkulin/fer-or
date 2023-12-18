@@ -10,6 +10,20 @@ export async function GET() {
   try {
     const authorsRef = collection(db, "authors");
     const authorsSnapshot = await getDocs(authorsRef);
+    if (authorsSnapshot.empty) {
+      return NextResponse.json(
+        {
+          status: "Not Found",
+          message: "No authors found",
+          response: null,
+          timestamp: dayjs().toISOString(),
+        },
+        {
+          status: 404,
+        }
+      );
+    }
+
     const authors = authorsSnapshot.docs.map((doc) => doc.data() as Author);
 
     return NextResponse.json(authors);

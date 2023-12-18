@@ -5,7 +5,7 @@ import dayjs from "dayjs";
 import { collection, getDocs } from "firebase/firestore";
 import { NextResponse, type NextRequest } from "next/server";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   console.log(dayjs().toISOString() + " GET /api/dump");
 
   try {
