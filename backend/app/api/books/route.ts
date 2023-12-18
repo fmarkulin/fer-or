@@ -23,6 +23,7 @@ function isBook(obj: any): obj is Book {
     typeof obj.key === "string" &&
     typeof obj.authors === "object" &&
     Array.isArray(obj.authors) &&
+    obj.authors.every((author: any) => typeof author === "string") &&
     typeof obj.title === "string" &&
     typeof obj.subjects === "object" &&
     Array.isArray(obj.subjects) &&
