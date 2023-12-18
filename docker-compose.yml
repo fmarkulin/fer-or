@@ -1,12 +1,12 @@
 version: "2.0"
 
 services:
-  web:
-    image: frankulin/fer-or:v2
+  backend:
+    image: frankulin/fer-or:v3
     ports:
       - "3000:3000"
     environment:
       - NODE_ENV=production
       - PORT=3000
       - HOSTNAME=0.0.0.0
-    container_name: fer-or-web
+    container_name: fer-or-api
