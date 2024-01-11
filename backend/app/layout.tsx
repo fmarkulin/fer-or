@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Toaster } from "react-hot-toast";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
 
 export const metadata: Metadata = {
   title: "Knjige i njihovi autori",
@@ -27,18 +28,20 @@ export default function RootLayout({
     >
       <body className="min-h-screen flex flex-col">
         <Toaster />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          <main className="max-w-7xl w-screen grow flex mx-auto p-8 pb-16">
-            {children}
-          </main>
-          <Footer />
-        </ThemeProvider>
+        <UserProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            <main className="max-w-7xl w-screen grow flex mx-auto p-8 pb-16">
+              {children}
+            </main>
+            <Footer />
+          </ThemeProvider>
+        </UserProvider>
       </body>
     </html>
   );

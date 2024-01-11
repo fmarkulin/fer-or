@@ -9,8 +9,12 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from "./ui/navigation-menu";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import { ShieldEllipsis, ShieldX } from "lucide-react";
 
 export default function Header() {
+  const { user, error, isLoading } = useUser();
+
   return (
     <header className="sticky bg-inherit top-0 left-0 right-0 z-10 shadow-sm">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-3 px-8">
@@ -32,7 +36,32 @@ export default function Header() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <ModeToggle />
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              {error ? (
+                <ShieldX className="text-red-500" />
+              ) : isLoading ? (
+                <ShieldEllipsis className="text-blue-500" />
+              ) : user ? (
+                <Link href={"/api/auth/logout"} legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Logout
+                  </NavigationMenuLink>
+                </Link>
+              ) : (
+                <Link href={"/api/auth/login"} legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Login
+                  </NavigationMenuLink>
+                </Link>
+              )}
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <ModeToggle />
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
       </div>
     </header>
   );
