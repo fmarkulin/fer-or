@@ -11,6 +11,7 @@ import {
 } from "./ui/navigation-menu";
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { ShieldEllipsis, ShieldX } from "lucide-react";
+import { Button } from "./ui/button";
 
 export default function Header() {
   const { user, error, isLoading } = useUser();
@@ -38,25 +39,45 @@ export default function Header() {
         </NavigationMenu>
         <NavigationMenu>
           <NavigationMenuList>
-            <NavigationMenuItem>
-              {error ? (
+            {error ? (
+              <NavigationMenuItem>
                 <ShieldX className="text-red-500" />
-              ) : isLoading ? (
+              </NavigationMenuItem>
+            ) : isLoading ? (
+              <NavigationMenuItem>
                 <ShieldEllipsis className="text-blue-500" />
-              ) : user ? (
-                <Link href={"/api/auth/logout"} legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Logout
-                  </NavigationMenuLink>
-                </Link>
-              ) : (
-                <Link href={"/api/auth/login"} legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                    Login
-                  </NavigationMenuLink>
-                </Link>
-              )}
-            </NavigationMenuItem>
+              </NavigationMenuItem>
+            ) : user ? (
+              <>
+                <NavigationMenuItem>
+                  <Link href={"/user"} legacyBehavior passHref>
+                    <NavigationMenuLink
+                      className={navigationMenuTriggerStyle()}
+                    >
+                      Korisnički profil
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Button variant="ghost">Osvježi preslike</Button>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                  <Link href={"/api/auth/logout"} legacyBehavior passHref>
+                    <NavigationMenuLink
+                      className={navigationMenuTriggerStyle()}
+                    >
+                      Odjava
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              </>
+            ) : (
+              <Link href={"/api/auth/login"} legacyBehavior passHref>
+                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                  Prijava
+                </NavigationMenuLink>
+              </Link>
+            )}
             <NavigationMenuItem>
               <ModeToggle />
             </NavigationMenuItem>

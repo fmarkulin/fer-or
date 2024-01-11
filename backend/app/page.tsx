@@ -3,8 +3,20 @@
 import Readme from "@/components/Readme";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 export default function Home() {
+  const searchParams = useSearchParams();
+  const error = searchParams.get("error");
+
+  useEffect(() => {
+    if (!error) return;
+    if (error === "unauthorized") toast.error("Niste prijavljeni");
+    else toast.error("Došlo je do pogreške");
+  }, [error]);
+
   return (
     <div className="flex flex-col gap-4 justify-center items-center grow">
       <h1 className="text-4xl font-bold">
