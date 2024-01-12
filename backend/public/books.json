@@ -1,25 +1,23 @@
 [
   {
+    "type": "edition",
     "number_of_pages": 127,
     "title": "Brodie's Notes on Emily Bronte's \"Wuthering Heights\" (Brodies Notes)",
-    "publish_date": "August 7, 1992",
-    "publishers": [
-      "Palgrave Macmillan"
-    ],
-    "last_modified": "2022-11-15T20:13:03.789779",
-    "type": "edition",
-    "revision": 13,
     "latest_revision": 13,
     "authors": [
       {
-        "last_modified": "2008-08-19 18:21:52.259027",
-        "type": "author",
-        "name": "Norman T. Carrington",
         "key": "OL1158982A",
-        "revision": 2
+        "last_modified": "2008-08-19 18:21:52.259027",
+        "name": "Norman T. Carrington",
+        "revision": 2,
+        "type": "author"
       }
     ],
+    "publishers": [
+      "Palgrave Macmillan"
+    ],
     "key": "OL10551435M",
+    "publish_date": "August 7, 1992",
     "subjects": [
       "English literature: literary criticism",
       "Novels, other prose & writers: 19th century",
@@ -28,69 +26,135 @@
       "Study guides, home study & revision notes",
       "English",
       "Children: Young Adult (Gr. 7-9)"
-    ]
+    ],
+    "revision": 15,
+    "last_modified": "2022-11-15T20:13:03.789779"
   },
   {
-    "revision": 3,
+    "last_modified": "2022-11-15T20:13:03.789779",
+    "authors": [
+      {
+        "key": "OL1158982A",
+        "last_modified": "2008-08-19 18:21:52.259027",
+        "name": "Norman T. Carrington",
+        "revision": 2,
+        "type": "author"
+      }
+    ],
+    "title": "Brodie's Notes on Emily Bronte's \"Wuthering Heights\" (Brodies Notes)",
+    "subjects": [
+      "English literature: literary criticism",
+      "Novels, other prose & writers: 19th century",
+      "Designed / suitable for A & AS Level",
+      "For National Curriculum Key Stage 4 & GCSE",
+      "Study guides, home study & revision notes",
+      "English",
+      "Children: Young Adult (Gr. 7-9)"
+    ],
+    "publish_date": "August 7, 1992",
+    "latest_revision": 13,
+    "number_of_pages": 127,
+    "type": "edition",
+    "publishers": [
+      "Palgrave Macmillan"
+    ],
+    "key": "OL10551435M0",
+    "revision": 14
+  },
+  {
+    "last_modified": "2022-11-15T20:13:03.789779",
+    "subjects": [
+      "English literature: literary criticism",
+      "Novels, other prose & writers: 19th century",
+      "Designed / suitable for A & AS Level",
+      "For National Curriculum Key Stage 4 & GCSE",
+      "Study guides, home study & revision notes",
+      "English",
+      "Children: Young Adult (Gr. 7-9)"
+    ],
+    "revision": 14,
+    "type": "edition",
+    "authors": [
+      {
+        "key": "OL1158982A",
+        "last_modified": "2008-08-19 18:21:52.259027",
+        "name": "Norman T. Carrington",
+        "revision": 2,
+        "type": "author"
+      }
+    ],
+    "publishers": [
+      "Palgrave Macmillan"
+    ],
+    "number_of_pages": 127,
+    "latest_revision": 13,
+    "publish_date": "August 7, 1992",
+    "title": "Brodie's Notes on Emily Bronte's \"Wuthering Heights\" (Brodies Notes)",
+    "key": "OL10551435M012"
+  },
+  {
+    "title": "Aristophanes, ein Spiegel unserer Zeit.",
+    "authors": [
+      {
+        "key": "OL4473583A",
+        "revision": 1,
+        "type": "author",
+        "name": "A. B Kneisel",
+        "last_modified": "2008-09-02 18:39:32.675717"
+      }
+    ],
+    "latest_revision": 3,
+    "last_modified": "2010-04-13T09:56:10.635564",
+    "type": "edition",
+    "key": "OL13994901M",
     "publishers": [
       "P. Schettlers"
     ],
-    "key": "OL13994901M",
-    "number_of_pages": 78,
-    "type": "edition",
-    "latest_revision": 3,
-    "title": "Aristophanes, ein Spiegel unserer Zeit.",
     "subjects": [
       "Aristophanes"
     ],
-    "authors": [
-      {
-        "type": "author",
-        "name": "A. B Kneisel",
-        "last_modified": "2008-09-02 18:39:32.675717",
-        "revision": 1,
-        "key": "OL4473583A"
-      }
-    ],
+    "number_of_pages": 78,
     "publish_date": "1913",
-    "last_modified": "2010-04-13T09:56:10.635564"
+    "revision": 3
   },
   {
-    "revision": 10,
-    "type": "edition",
-    "key": "OL1413776M",
-    "publish_date": "1993",
-    "authors": [
-      {
-        "type": "author",
-        "name": "Sidney C. Moody",
-        "last_modified": "2008-08-30 03:01:23.375753",
-        "key": "OL581008A",
-        "revision": 2
-      }
-    ],
-    "publishers": [
-      "Presidio"
-    ],
-    "title": "War in Europe",
     "number_of_pages": 192,
-    "last_modified": "2022-12-05T06:01:35.024861",
+    "publish_date": "1993",
     "subjects": [
       "World War, 1939-1945 -- Campaigns -- Europe.",
       "World War, 1939-1945 -- Campaigns -- Europe -- Pictorial works."
     ],
-    "latest_revision": 10
+    "title": "War in Europe",
+    "type": "edition",
+    "key": "OL1413776M",
+    "authors": [
+      {
+        "revision": 2,
+        "type": "author",
+        "name": "Sidney C. Moody",
+        "key": "OL581008A",
+        "last_modified": "2008-08-30 03:01:23.375753"
+      }
+    ],
+    "last_modified": "2022-12-05T06:01:35.024861",
+    "publishers": [
+      "Presidio"
+    ],
+    "latest_revision": 10,
+    "revision": 10
   },
   {
-    "key": "OL21357082M",
+    "publishers": [
+      "Times Printing Company"
+    ],
     "title": "Muskoka sketch",
-    "revision": 5,
+    "last_modified": "2012-08-08T21:10:59.924864",
     "latest_revision": 5,
     "authors": [
       {
         "type": "author",
-        "name": "W. E. Hamilton",
         "last_modified": "2008-09-28 21:35:54.283711",
+        "name": "W. E. Hamilton",
         "revision": 1,
         "key": "OL5295787A"
       }
@@ -99,169 +163,167 @@
       "Muskoka (Ont. : District) -- Description and travel.",
       "Muskoka (Ont. : District) -- History."
     ],
-    "publishers": [
-      "Times Printing Company"
-    ],
-    "type": "edition",
     "publish_date": "1983",
+    "type": "edition",
     "number_of_pages": 26,
-    "last_modified": "2012-08-08T21:10:59.924864"
+    "revision": 5,
+    "key": "OL21357082M"
   },
   {
     "last_modified": "2012-08-07T10:18:24.946860",
-    "latest_revision": 3,
-    "number_of_pages": 200,
-    "revision": 3,
-    "title": "A Letter to Alexander Knox, Esq. M.R.I.A.",
-    "key": "OL22885087M",
     "publishers": [
       "Printed by H. Colbert"
     ],
-    "publish_date": "1803",
+    "key": "OL22885087M",
+    "number_of_pages": 200,
+    "latest_revision": 3,
+    "revision": 3,
     "authors": [
       {
-        "name": "Walker, John",
-        "revision": 2,
         "type": "author",
         "key": "OL2555401A",
-        "last_modified": "2012-06-07T08:18:43.478466"
+        "last_modified": "2012-06-07T08:18:43.478466",
+        "name": "Walker, John",
+        "revision": 2
       }
     ],
     "type": "edition",
     "subjects": [
       "Methodists -- Ireland."
-    ]
+    ],
+    "publish_date": "1803",
+    "title": "A Letter to Alexander Knox, Esq. M.R.I.A."
   },
   {
+    "key": "OL25465456M",
     "publishers": [
       "L.J. Demers"
     ],
-    "last_modified": "2020-05-21T10:17:30.189173",
-    "number_of_pages": 48,
-    "type": "edition",
-    "subjects": [
-      "Credit",
-      "Banks and banking"
-    ],
-    "title": "Les Institutions de credit-foncier. Quelques notes sur leur but, leur organisation et leur origine",
-    "latest_revision": 2,
+    "publish_date": "1880",
     "authors": [
       {
         "type": "author",
-        "last_modified": "2008-09-28 19:19:44.680177",
         "revision": 1,
         "name": "L. N. Carrier",
+        "last_modified": "2008-09-28 19:19:44.680177",
         "key": "OL5288239A"
       }
     ],
-    "publish_date": "1880",
+    "latest_revision": 2,
+    "title": "Les Institutions de credit-foncier. Quelques notes sur leur but, leur organisation et leur origine",
+    "type": "edition",
+    "last_modified": "2020-05-21T10:17:30.189173",
+    "number_of_pages": 48,
     "revision": 2,
-    "key": "OL25465456M"
+    "subjects": [
+      "Credit",
+      "Banks and banking"
+    ]
   },
   {
-    "publish_date": "1965",
-    "revision": 3,
-    "last_modified": "2020-05-15T03:58:15.877548",
-    "number_of_pages": 298,
-    "title": "Psaumes et prière chrétienne",
     "key": "OL26545029M",
+    "revision": 3,
+    "number_of_pages": 298,
+    "last_modified": "2020-05-15T03:58:15.877548",
+    "type": "edition",
+    "publishers": [
+      "Biblica, Publications de Saint André"
+    ],
+    "latest_revision": 3,
+    "publish_date": "1965",
+    "title": "Psaumes et prière chrétienne",
     "subjects": [
       "Criticism, interpretation",
       "Bible"
     ],
-    "type": "edition",
     "authors": [
       {
-        "last_modified": "2008-04-01 03:28:50.625462",
-        "type": "author",
         "name": "Rose, A.",
+        "type": "author",
         "revision": 1,
+        "last_modified": "2008-04-01 03:28:50.625462",
         "key": "OL2153880A"
       }
-    ],
-    "latest_revision": 3,
-    "publishers": [
-      "Biblica, Publications de Saint André"
     ]
   },
   {
-    "publishers": [
-      "IDG Books Worldwide"
-    ],
-    "type": "edition",
-    "title": "VCRs & camcorders for dummies",
-    "revision": 10,
+    "number_of_pages": 331,
     "subjects": [
       "Home video systems.",
       "Video tape recorders.",
       "Camcorders.",
       "Television -- Equipment and supplies."
     ],
-    "number_of_pages": 331,
+    "latest_revision": 10,
+    "title": "VCRs & camcorders for dummies",
     "key": "OL824543M",
     "publish_date": "1995",
-    "last_modified": "2020-11-20T15:58:35.964496",
     "authors": [
       {
-        "name": "Gordon McComb",
         "last_modified": "2008-09-12 15:59:54.226722",
-        "key": "OL51749A",
         "type": "author",
+        "name": "Gordon McComb",
+        "key": "OL51749A",
         "revision": 2
       }
     ],
-    "latest_revision": 10
+    "publishers": [
+      "IDG Books Worldwide"
+    ],
+    "type": "edition",
+    "last_modified": "2020-11-20T15:58:35.964496",
+    "revision": 10
   },
   {
-    "subjects": [
-      "Protestants -- Northern Ireland -- Belfast -- Drama.",
-      "Soccer -- Northern Ireland -- Belfast -- Drama."
-    ],
-    "revision": 6,
-    "publish_date": "1995",
-    "latest_revision": 6,
+    "key": "OL904472M",
     "publishers": [
       "New Island Books",
       "Nick Hern Books"
     ],
-    "key": "OL904472M",
+    "revision": 6,
+    "type": "edition",
+    "number_of_pages": 48,
+    "publish_date": "1995",
     "last_modified": "2020-11-21T08:24:06.596410",
+    "latest_revision": 6,
+    "title": "A night in November",
     "authors": [
       {
-        "type": "author",
         "last_modified": "2008-08-31 21:11:02.340397",
         "name": "Marie Jones",
-        "revision": 2,
-        "key": "OL500580A"
+        "key": "OL500580A",
+        "type": "author",
+        "revision": 2
       }
     ],
-    "number_of_pages": 48,
-    "type": "edition",
-    "title": "A night in November"
+    "subjects": [
+      "Protestants -- Northern Ireland -- Belfast -- Drama.",
+      "Soccer -- Northern Ireland -- Belfast -- Drama."
+    ]
   },
   {
-    "authors": [
-      {
-        "revision": 1,
-        "type": "author",
-        "key": "OL2802829A",
-        "name": "Lorna Read",
-        "last_modified": "2008-04-29 15:03:11.581851"
-      }
-    ],
+    "latest_revision": 5,
+    "key": "OL9921201M",
     "publishers": [
       "Collins"
     ],
-    "number_of_pages": 96,
+    "authors": [
+      {
+        "type": "author",
+        "key": "OL2802829A",
+        "name": "Lorna Read",
+        "last_modified": "2008-04-29 15:03:11.581851",
+        "revision": 1
+      }
+    ],
     "publish_date": "November 3, 1997",
-    "latest_revision": 5,
-    "last_modified": "2022-12-17T03:01:10.857196",
-    "title": "The Sleepover Girls Go Spice.... (The Sleepover Club)",
-    "revision": 5,
-    "key": "OL9921201M",
     "subjects": [
       "Fiction"
     ],
-    "type": "edition"
+    "title": "The Sleepover Girls Go Spice.... (The Sleepover Club)",
+    "type": "edition",
+    "revision": 5,
+    "last_modified": "2022-12-17T03:01:10.857196",
+    "number_of_pages": 96
   }
 ]

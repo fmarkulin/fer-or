@@ -79,7 +79,7 @@ declare type Book = {
       };
     });
 
-    console.log("writing to export.json...");
+    console.log("writing to books.json...");
     fs.writeFileSync(
       "books.json",
       JSON.stringify(booksExport, null, 2),

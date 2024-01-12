@@ -12,6 +12,20 @@ import {
 import { useUser } from "@auth0/nextjs-auth0/client";
 import { ShieldEllipsis, ShieldX } from "lucide-react";
 import { Button } from "./ui/button";
+import refreshDumps from "@/lib/refreshDumps";
+import toast from "react-hot-toast";
+
+const handleDumpRefresh = async () => {
+  const loadingToast = toast.loading("Osvježavanje preslika...");
+  try {
+    await refreshDumps();
+    toast.dismiss(loadingToast);
+    toast.success("Preslike osvježene.");
+  } catch (error) {
+    toast.dismiss(loadingToast);
+    toast.error("Greška pri osvježavanju preslika.");
+  }
+};
 
 export default function Header() {
   const { user, error, isLoading } = useUser();
@@ -59,7 +73,9 @@ export default function Header() {
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Button variant="ghost">Osvježi preslike</Button>
+                  <Button variant="ghost" onClick={handleDumpRefresh}>
+                    Osvježi preslike
+                  </Button>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <Link href={"/api/auth/logout"} legacyBehavior passHref>
