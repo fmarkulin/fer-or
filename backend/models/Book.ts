@@ -10,4 +10,6 @@ export type Book = {
   last_modified: string;
   type: string;
   revision: number;
+  "@context": any;
+  "@type": "Book";
 };
