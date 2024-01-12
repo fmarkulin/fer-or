@@ -32,6 +32,13 @@ export async function GET(
     }
 
     const book = bookSnapshot.data() as Book;
+    book["@context"] = {
+      "@vocab": "https://schema.org/Book",
+      revision: "bookEdition",
+      number_of_pages: "numberOfPages",
+      title: "name",
+    };
+    book["@type"] = "Book";
 
     const authorRefs: DocumentReference[] = book.authors.map((author) =>
       doc(db, "authors", author)

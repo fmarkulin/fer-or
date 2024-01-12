@@ -28,7 +28,15 @@ export async function GET(
       );
     }
 
-    const author = authorSnapshot.data() as Author;
+    const author = {
+      ...authorSnapshot.data(),
+      "@context": {
+        "@vocab": "https://schema.org/Person",
+        name: "name",
+        key: "identifier",
+      },
+      "@type": "Person",
+    } as Author;
     return NextResponse.json(author);
   } catch (e) {
     console.log("error getting author", e);

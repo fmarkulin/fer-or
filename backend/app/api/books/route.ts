@@ -59,7 +59,18 @@ export async function GET(req: NextRequest) {
     }
 
     const books: Book[] = [];
-    bookSnapshots.forEach((snapshot) => books.push(snapshot.data() as Book));
+    bookSnapshots.forEach((snapshot) =>
+      books.push({
+        ...snapshot.data(),
+        "@context": {
+          "@vocab": "https://schema.org/Book",
+          revision: "bookEdition",
+          number_of_pages: "numberOfPages",
+          title: "name",
+        },
+        "@type": "Book",
+      } as Book)
+    );
 
     const booksExport: BookExport[] = [];
     for (const book of books) {

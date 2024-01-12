@@ -4,4 +4,6 @@ export type Author = {
   key: string;
   type: string;
   revision: number;
+  "@context": any;
+  "@type": "Person";
 };

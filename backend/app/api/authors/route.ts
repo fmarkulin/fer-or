@@ -24,7 +24,18 @@ export async function GET() {
       );
     }
 
-    const authors = authorsSnapshot.docs.map((doc) => doc.data() as Author);
+    const authors = authorsSnapshot.docs.map((doc) => {
+      const author = doc.data() as Author;
+      return {
+        ...author,
+        "@context": {
+          "@vocab": "https://schema.org/Person",
+          name: "name",
+          key: "identifier",
+        },
+        "@type": "Person",
+      };
+    });
 
     return NextResponse.json(authors);
   } catch (e) {
