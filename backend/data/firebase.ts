@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { connectFirestoreEmulator, getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBnMXECMZCVdBQCfs33imEYJ6k3YkhjUWs",
@@ -18,3 +19,5 @@ export const db = getFirestore(app);
 //   connectFirestoreEmulator(db, "localhost", 8080);
 //   console.log("connected to firestore emulator");
 // }
+
+export const storage = getStorage();

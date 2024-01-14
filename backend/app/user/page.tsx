@@ -1,6 +1,7 @@
-import { getSession } from "@auth0/nextjs-auth0";
+"use client";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import {
   Card,
   CardContent,
@@ -8,13 +9,37 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import toast from "react-hot-toast";
+import { useEffect, useState } from "react";
 
-export default async function UserPage() {
-  const session = await getSession();
-  if (!session) redirect("/?error=unauthorized");
+export default function UserPage() {
+  const { user, error, isLoading } = useUser();
+  const router = useRouter();
 
-  const { user } = session;
-  console.log(user);
+  const [disable, setDisable] = useState(true);
+
+  useEffect(() => {
+    if (isLoading) return;
+
+    if (!isLoading && error) {
+      toast.error("Greška prilikom dohvaćanja korisničkih podataka.");
+      router.push("/");
+    }
+
+    if (!isLoading && !user) {
+      toast.error("Niste prijavljeni.");
+      router.push("/");
+    }
+
+    if (!isLoading && user) {
+      setDisable(false);
+    }
+  }, [isLoading, error, user, router]);
+
+  if (disable || isLoading || error || !user) {
+    return null;
+  }
 
   return (
     <div className="flex flex-col gap-2 max-w-full">
@@ -22,7 +47,10 @@ export default async function UserPage() {
         <CardHeader>
           <CardTitle>
             <Avatar>
-              <AvatarImage src={user.picture} alt={user.name} />
+              <AvatarImage
+                src={user.picture ?? undefined}
+                alt={user.name ?? undefined}
+              />
               <AvatarFallback>{user.nickname}</AvatarFallback>
             </Avatar>
             <CardDescription>Korisnički podaci</CardDescription>
@@ -38,7 +66,7 @@ export default async function UserPage() {
               >
                 <span>{key}:</span>
                 <code className="bg-secondary text-secondary-foreground p-1 rounded ">
-                  {value.toString()}
+                  {value!.toString()}
                 </code>
               </div>
             ))}

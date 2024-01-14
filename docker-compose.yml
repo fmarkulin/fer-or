@@ -1,12 +1,17 @@
-version: "3.0"
+version: "4.0"
 
 services:
   backend:
-    image: frankulin/fer-or:v3
+    image: frankulin/fer-or:v4
     ports:
       - "3000:3000"
     environment:
       - NODE_ENV=production
       - PORT=3000
       - HOSTNAME=0.0.0.0
-    container_name: fer-or-api
+      - AUTH0_SECRET=ac17f710b0843319d9bfb614640b7189b4153749b50cb3a5a2a63c50eccb6010
+      - AUTH0_BASE_URL=http://localhost:3000
+      - AUTH0_ISSUER_BASE_URL=https://fran-markulin.eu.auth0.com
+      - AUTH0_CLIENT_ID=HhVTAFZgRdMUxzRH0EFvimbwsTzONRaC
+      - AUTH0_CLIENT_SECRET=6SXZfjIQv4jH_ccVU1NpwecNCpXQM9RU-4DbfkNp55OtAeL62GbaapFHokou5Qb7
+    container_name: fer-or-auth-jsonld

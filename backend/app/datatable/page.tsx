@@ -334,26 +334,6 @@ export default function DatatablePage() {
           onSubmit={form.handleSubmit(onSubmit)}
           className="flex flex-wrap gap-3 justify-space-between items-center"
         >
-          {/* <FormField
-            control={form.control}
-            name="atribut"
-            render={({ field }) => (
-              <FormItem className="flex flex-col">
-                <FormLabel>Polje za pretragu</FormLabel>
-                <select {...field} id="atribut">
-                  {searchAtributes.map((atribut) => (
-                    <option key={atribut.value} value={atribut.value}>
-                      {atribut.label}
-                    </option>
-                  ))}
-                </select>
-                <FormDescription>
-                  Po ovom polju će se vršiti pretraga
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          /> */}
           <FormField
             control={form.control}
             name="atribut"
@@ -407,7 +387,12 @@ export default function DatatablePage() {
               </FormItem>
             )}
           />
-          <Button className="active:scale-95" type="submit" id="gumb" size="icon">
+          <Button
+            className="active:scale-95"
+            type="submit"
+            id="gumb"
+            size="icon"
+          >
             <Search />
           </Button>
           <div className="flex font-mono gap-2">

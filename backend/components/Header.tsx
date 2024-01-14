@@ -78,21 +78,21 @@ export default function Header() {
                   </Button>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                  <Link href={"/api/auth/logout"} legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={navigationMenuTriggerStyle()}
-                    >
-                      Odjava
-                    </NavigationMenuLink>
-                  </Link>
+                  <NavigationMenuLink
+                    className={navigationMenuTriggerStyle()}
+                    href="/api/auth/logout"
+                  >
+                    Odjava
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               </>
             ) : (
-              <Link href={"/api/auth/login"} legacyBehavior passHref>
-                <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                  Prijava
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                className={navigationMenuTriggerStyle()}
+                href="/api/auth/login"
+              >
+                Prijava
+              </NavigationMenuLink>
             )}
             <NavigationMenuItem>
               <ModeToggle />

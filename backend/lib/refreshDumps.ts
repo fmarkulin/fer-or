@@ -1,11 +1,12 @@
 "use server";
 
-import { db } from "@/data/firebase";
+import { db, storage } from "@/data/firebase";
 import { Author } from "@/models/Author";
 import { Book } from "@/models/Book";
 import { BookExport } from "@/models/BookExport";
 import { collection, getDocs } from "firebase/firestore";
-import * as fs from "fs";
+import { ref, uploadBytes, uploadString } from "firebase/storage";
+import path from "path";
 
 const handleCommas = (input: any) => {
   if (typeof input === "string" && (input as string).includes(","))
@@ -15,6 +16,8 @@ const handleCommas = (input: any) => {
 
 const refreshDumps = async () => {
   console.log("Refreshing dumps...");
+  const dir = path.resolve(__dirname, "../../data");
+  console.log(dir);
   try {
     const booksRef = collection(db, "books");
     const booksSnapshot = await getDocs(booksRef);
@@ -67,14 +70,20 @@ const refreshDumps = async () => {
     );
     const csv = header + rows.map((row) => row.join(",")).join("\n");
 
-    fs.writeFileSync(
-      "./public/books.json",
-      JSON.stringify(booksExport, null, 2),
-      "utf-8"
+    await uploadString(ref(storage, "books.csv"), csv, "raw", {
+      contentType: "text/csv",
+    });
+
+    await uploadBytes(
+      ref(storage, "books.json"),
+      Buffer.from(JSON.stringify(booksExport, null, 2)),
+      {
+        contentType: "application/json",
+      }
     );
-    fs.writeFileSync("./public/books.csv", csv, "utf-8");
   } catch (e) {
     console.error(e);
+    throw new Error("Error refreshing dumps");
   }
 };
 
